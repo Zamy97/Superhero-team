@@ -28,6 +28,4 @@ my_second_dog.bark()
 
 
 
-class Ability:
-    def __init__(self, name, attack_strength):
-        # Initialize starting values
+
