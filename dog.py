@@ -5,3 +5,5 @@ class Dog:
 
 my_dog = Dog()
 my_dog.bark()
+
+print(__name__)
