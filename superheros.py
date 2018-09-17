@@ -23,6 +23,21 @@ class Hero:
         self.name = name
 
 
-    def add_ability()
+    def add_ability(self, ability):
+        abilities.append(ability)
 
-    
+    def attack(self):
+        total = 0
+        for each_items in self.abilities:
+            total += each_items.attack()
+        return total
+
+
+hero = Hero("Spider Man")
+print(hero.attack())
+ability = Ability("Divine speed", 300)
+hero.add_ability(ability)
+print(hero.attack())
+new_ability = Ability("Super Human Strength", 800)
+hero.add_ability(new_ability)
+print(hero.attack())
