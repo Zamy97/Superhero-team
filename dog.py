@@ -1,7 +1,14 @@
 
 class Dog:
+    greeting = "woof!"
+
+    def __init__(self, name):
+        self.name = name
+
+
+
     def bark(self):
-        print("woof!")
+        print(self.greeting)
 
 
 if __name__ == "__main__":
