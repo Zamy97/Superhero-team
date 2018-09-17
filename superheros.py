@@ -8,5 +8,8 @@ import random
 
 
      def attack(self):
+         int_value = 20 // 8
+         random.randint(2,10)
+         
 
      def update_attack(self, attack_strength):
