@@ -8,8 +8,12 @@ import random
 
 
      def attack(self):
-         int_value = 20 // 8
-         random.randint(2,10)
-         
+         lowest_possible_attack = attack_strength // 2
+         random.randint(lowest_possible_attack,attack_strength)
+
+
 
      def update_attack(self, attack_strength):
+
+
+abilty_name = Ability("Punch")

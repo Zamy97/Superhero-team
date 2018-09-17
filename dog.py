@@ -25,7 +25,3 @@ print(my_second_dog.name)
 
 my_first_dog.bark()
 my_second_dog.bark()
-
-
-
-
