@@ -19,5 +19,10 @@ class Ability:
 class Hero:
 
     def __init__(self, name):
+        self.abilities = list()
+        self.name = name
+
 
     def add_ability()
+
+    
