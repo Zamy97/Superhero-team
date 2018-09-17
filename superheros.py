@@ -1,6 +1,6 @@
 import random
 
- class Ability:
+class Ability:
 
      def __init__(self, name, attack_strength):
          self.name = name
@@ -15,3 +15,9 @@ import random
 
      def update_attack(self, new_strength):
          self.attack_strength = new_strength
+
+class Hero:
+
+    def __init__(self, name):
+
+    def add_ability()
