@@ -2,9 +2,14 @@ import random
 
 class Hero:
 
-    def __init__(self, name):
+    def __init__(self, name, health=100):
         self.abilities = list()
         self.name = name
+        self.armors = list()
+        self.start_health = health
+        self.health = health
+        self.death = 0
+        self.kills = 0
 
 
     def add_ability(self, ability):
@@ -16,6 +21,14 @@ class Hero:
         for each_items in self.abilities:
             total += each_items.attack()
         return total
+
+    def defend(self, damage_amount):
+        """
+         This method should run the defend method on each piece of armor and calculate the total defense.
+
+        If the hero's health is 0, the hero is out of play and should return 0 defense points.
+
+        """
 
 class Ability:
 
