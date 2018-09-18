@@ -34,6 +34,21 @@ class Hero:
             total += each_items.attack()
         return total
 
+class Weapen(Ability):
+
+    def attack(self):
+        full_possible_attack = self.attack_strength // 2
+        full_attack = random.randint(full_possible_attack, self.attack_strength)
+        return full_attack
+
+class Team
+
+
+
+
+
+
+
 if __name__ == "__main__":
     hero = Hero("Spider Man")
     print(hero.attack())

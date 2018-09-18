@@ -1,0 +1,5 @@
+** Questions about the Weapen class!
+
+**How do I get the full_possible_attack power from my method.
+
+**Since I am getting a copy of the attack do I still need to create new properties to be able to get a random number between 0 - full_possible_attack!
