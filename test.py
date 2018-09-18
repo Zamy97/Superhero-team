@@ -35,14 +35,18 @@
 # kiddo.sleep()
 
 class Animal:
-    def __init__(self, name, sleep_time):
+    def __init__(self, name, nap_time):
         self.name = name
-        self.sleep_time = sleep_time
+        self.nap_time = nap_time
 
     def sleep(self):
-        print(
-        "{} slepps for {} hours.".format(
-        self.name, self.sleep_time))
+        print("{} slepps for {} hours.".format(
+        self.name, self.nap_time))
 
+class Dog(Animal):
     def bark(self):
-        
+        print("woof! Woof!")
+
+my_doggo = Dog("Spot", 23)
+my_doggo.sleep()
+my_doggo.bark()
