@@ -1,22 +1,5 @@
 import random
 
-class Ability:
-
-     def __init__(self, name, attack_strength):
-         self.name = name
-         self.attack_strength = attack_strength
-
-
-     def attack(self):
-         lowest_possible_attack = self.attack_strength // 2
-         attack = random.randint(lowest_possible_attack,self.attack_strength)
-         return attack
-
-
-
-     def update_attack(self, new_strength):
-         self.attack_strength = new_strength
-
 class Hero:
 
     def __init__(self, name):
@@ -34,14 +17,44 @@ class Hero:
             total += each_items.attack()
         return total
 
+class Ability:
+
+     def __init__(self, name, attack_strength):
+         self.name = name
+         self.attack_strength = attack_strength
+
+
+     def attack(self):
+         lowest_possible_attack = self.attack_strength // 2
+         attack = random.randint(lowest_possible_attack,self.attack_strength)
+         return attack
+
+
+
+     def update_attack(self, new_strength):
+         self.attack_strength = new_strength
+
+
 class Weapen(Ability):
 
     def attack(self):
         full_possible_attack = self.attack_strength // 2
         full_attack = random.randint(full_possible_attack, self.attack_strength)
         return full_attack
+x = Ability() + Hero() + Weapen()
 
-class Team
+class Team:
+
+    def __init__(self, team_name):
+
+        self.name = team_name
+        self.heroes = list()
+
+    def add_hero(self, Hero):
+
+        Hero +=
+
+
 
 
 
