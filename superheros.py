@@ -22,11 +22,24 @@ class Hero:
             total += each_items.attack()
         return total
 
-    def defend(self, damage_amount):
+    def defend(self):
         """
          This method should run the defend method on each piece of armor and calculate the total defense.
 
         If the hero's health is 0, the hero is out of play and should return 0 defense points.
+
+        """
+    def take_damage(self, damage_amount):
+        """
+        This method should subtract the damage amount from the her's health.
+
+        If the hero dies update number of deaths.
+
+        """
+
+    def add_kill(self,num_kills):
+        """
+        This method should add the number of kills to self.kills
 
         """
 
