@@ -22,5 +22,6 @@
   "hero_test.py::test_team_remove_hero": true, 
   "hero_test.py::test_team_remove_unlisted": true, 
   "hero_test.py::test_weapon_attack": true, 
-  "hero_test.py::test_weapon_instance": true
+  "hero_test.py::test_weapon_instance": true, 
+  "superheros.py": true
 }

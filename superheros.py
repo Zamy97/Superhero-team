@@ -64,15 +64,14 @@ class Ability:
 class Weapen(Ability):
 
     def attack(self):
-        return random.randint(0, self.attack_strength)
+        return random.randint(0,
+        self.attack_strength)
 
 
 
 class Team:
 
     def __init__(self, team_name):
-
-    """ Instantiate resources. """
 
         self.name = team_name
         self.heroes = list()
