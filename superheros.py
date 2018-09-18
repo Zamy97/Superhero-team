@@ -38,10 +38,9 @@ class Ability:
 class Weapen(Ability):
 
     def attack(self):
-        full_possible_attack = self.attack_strength // 2
-        full_attack = random.randint(full_possible_attack, self.attack_strength)
-        return full_attack
-x = Ability() + Hero() + Weapen()
+        return random.randint(0, self.attack_strength)
+
+
 
 class Team:
 
