@@ -46,12 +46,34 @@ class Team:
 
     def __init__(self, team_name):
 
+    """ Instantiate resources. """
+
         self.name = team_name
         self.heroes = list()
 
     def add_hero(self, Hero):
 
-        Hero +=
+    """ Add Hero Object to heroes list."""
+
+        self.heroes.append(hero)
+
+    def remove_hero(self, name):
+
+    """ Remove hero from heroes list.
+        If Hero isn't found return 0 """
+
+        hero_list = 0
+
+        # self.heroes.remove(hero)
+        for hero in self.heroes:
+            if hero.name == name:
+                self.heroes.remove()
+                return
+            hero_list += 1
+        return 0
+
+
+
 
 
 
