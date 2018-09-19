@@ -23,25 +23,26 @@ class Hero:
         return total
 
     def defend(self):
-        """
-         This method should run the defend method on each piece of armor and calculate the total defense.
 
-        If the hero's health is 0, the hero is out of play and should return 0 defense points.
 
-        """
+        for every_item in self.armors:
+            total_defence += every_item.defense()
+        if self.health == 0:
+            return 0
+
+
     def take_damage(self, damage_amount):
-        """
-        This method should subtract the damage amount from the her's health.
 
-        If the hero dies update number of deaths.
+        self.health -= damage_amount
+        if self.health <= 0:
+            self.death += 1
 
-        """
-
-    def add_kill(self,num_kills):
-        """
-        This method should add the number of kills to self.kills
-
-        """
+    def add_kill(self, num_kills):
+        # """
+        # This method should add the number of kills to self.kills
+        #
+        # """
+        self.kills += num_kills
 
 class Ability:
 
@@ -78,14 +79,14 @@ class Team:
 
     def add_hero(self, Hero):
 
-    """ Add Hero Object to heroes list."""
+    # """ Add Hero Object to heroes list."""
 
         self.heroes.append(hero)
 
     def remove_hero(self, name):
 
-    """ Remove hero from heroes list.
-        If Hero isn't found return 0 """
+    # """ Remove hero from heroes list.
+    #     If Hero isn't found return 0 """
 
         hero_list = 0
 
@@ -98,7 +99,7 @@ class Team:
         return 0
 
     def find_hero(self, name):
-    """ Find and return hero from heroes listself.
+    # """ Find and return hero from heroes listself.
         If Hero isn't found return 0 """
         for hero in self.heroes:
             if hero.name == name:
@@ -106,7 +107,7 @@ class Team:
         return 0
 
     def view_all_heroes(self):
-    """ Print out all heroes to the console"""
+    #""" Print out all heroes to the console"""
         for hero in self.heroes:
             print(hero.name)
 
@@ -114,14 +115,14 @@ class Armor:
 
     def __init__(self, name, defense):
 
-        """ Instantinate name and defence steength. """
+    #    """ Instantinate name and defence steength. """
         self.name = name
         self.defense = defense
 
     def defend(self):
 
-    """ Return a random value between 0 and the initialized defend strength.
-    """
+    #""" Return a random value between 0 and the initialized defend strength.
+    #"""
     return random.randint(0, self.defense)
 
 
