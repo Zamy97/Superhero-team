@@ -198,3 +198,43 @@ def test_hero_start_health():
 def test_hero_defense():
     jodie = superheroes.Hero("Jodie Foster")
     gauntlets = superheroes.Armor("Gauntlets", 30)
+    jodie.add_armor(gauntlets)
+    defense = jodie.defend()
+    assert defense >= 0 and defense <= 30
+
+
+def test_dead_hero_defense():
+    hero = superheroes.Hero("Vlaad", 0)
+    garlic = superheroes.Armor("Garlic", 30000)
+    hero.add_ability(garlic)
+    assert hero.defend() == 0
+
+
+def test_hero_equip_armor():
+    jodie = superheroes.Hero("Jodie Foster")
+    gauntlets = superheroes.Armor("Gauntlets", 30)
+    jodie.add_armor(gauntlets)
+    assert len(jodie.armors) == 1
+    assert jodie.armors[0].name == "Gauntlets"
+
+
+def test_hero_defend_multi_armor():
+    jodie = superheroes.Hero("Jodie Foster")
+    gauntlets = superheroes.Armor("Gauntlets", 4000)
+    science = superheroes.Armor("Science", 9000)
+    jodie.add_armor(gauntlets)
+    jodie.add_armor(science)
+    defend = jodie.defend()
+    assert defend <= 13000 and defend >= 0
+
+
+def test_hero_attack():
+    flash = superheroes.Hero("The Flash")
+    assert flash.attack() == 0
+    pesto = superheroes.Ability("Pesto Sauce", 8000)
+    flash.add_ability(pesto)
+    attack = flash.attack()
+    assert attack <= 8000 and attack >= 4000
+
+
+# Test Team
