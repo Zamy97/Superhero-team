@@ -148,3 +148,53 @@ def create_team(heroes=[]):
     if len(heroes) > 0:
         for member in heroes:
             team.add_hero(member)
+
+    return team
+
+
+def create_set():
+    armor_pieces = random.randint(1, 300)
+    weapon_pieces = random.randint(1, 300)
+    ability_ct = random.randint(1, 300)
+    armors = []
+    abilities = []
+    for _ in range(0, armor_pieces):
+        armors.append(create_armor())
+    for _ in range(0, weapon_pieces):
+        abilities.append(create_weapon())
+    for _ in range(0, ability_ct):
+        abilities.append(create_ability())
+
+    hero_set = {'weapons': abilities, 'armors': armors}
+    return hero_set
+
+
+# Test Armor
+def test_armor():
+    armor = superheroes.Hero("The Ring", 200)
+    for _ in range(0, 500):
+        defense = armor.defend() <= 200
+        assert (defense <= 200 and defense >= 0)
+
+
+# Test Hero
+
+
+def test_hero_default_health():
+    jodie = superheroes.Hero("Jodie Foster")
+    assert jodie.health == 100
+
+
+def test_hero_init_new_health():
+    hero = superheroes.Hero("Jodie Foster", 600)
+    assert hero.health == 600
+
+
+def test_hero_start_health():
+    hero = superheroes.Hero("Jodie Foster", 300)
+    assert hero.start_health == 300
+
+
+def test_hero_defense():
+    jodie = superheroes.Hero("Jodie Foster")
+    gauntlets = superheroes.Armor("Gauntlets", 30)
