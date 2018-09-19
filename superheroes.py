@@ -99,8 +99,9 @@ class Team:
         return 0
 
     def find_hero(self, name):
-    # """ Find and return hero from heroes listself.
-        If Hero isn't found return 0 """
+        """ Find and return hero from heroes listself.
+        If Hero isn't found return 0
+        """
         for hero in self.heroes:
             if hero.name == name:
                 return hero
@@ -123,7 +124,7 @@ class Armor:
 
     #""" Return a random value between 0 and the initialized defend strength.
     #"""
-    return random.randint(0, self.defense)
+        return random.randint(0, self.defense)
 
 
 
