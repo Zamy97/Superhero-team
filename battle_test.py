@@ -238,3 +238,87 @@ def test_hero_attack():
 
 
 # Test Team
+
+def test_team_attack():
+    team_one = superheroes.Team("One")
+    jodie = superheroes.Hero("Jodie Foster")
+    aliens = superheroes.Ability("Alien Friends", 10000)
+    jodie.add_ability(aliens)
+    team_one.add_hero(jodie)
+    team_two = superheroes.Team("Two")
+    athena = superheroes.Hero("Athena")
+    socks = superheroes.Armor("Socks", 10)
+    athena.add_armor(socks)
+    team_two.add_hero(athena)
+    assert team_two.heroes[0].health == 100
+
+    team_one.attack(team_two)
+
+    assert team_two.heroes[0].health <= 0
+
+
+def test_team_attack_kills():
+    team_one = superheroes.Team("One")
+    jodie = superheroes.Hero("Jodie Foster")
+    aliens = superheroes.Ability("Alien Friends", 10000)
+    jodie.add_ability(aliens)
+    team_one.add_hero(jodie)
+    team_two = superheroes.Team("Two")
+    athena = superheroes.Hero("Athena")
+    socks = superheroes.Armor("Socks", 10)
+    athena.add_armor(socks)
+    team_two.add_hero(athena)
+    assert team_one.heroes[0].kills == 0
+    team_one.attack(team_two)
+    assert team_one.heroes[0].kills == 1
+
+
+def test_team_attack_deaths():
+    team_one = superheroes.Team("One")
+    jodie = superheroes.Hero("Jodie Foster")
+    aliens = superheroes.Ability("Alien Friends", 10000)
+    jodie.add_ability(aliens)
+    team_one.add_hero(jodie)
+    team_two = superheroes.Team("Two")
+    athena = superheroes.Hero("Athena")
+    socks = superheroes.Armor("Socks", 10)
+    athena.add_armor(socks)
+    team_two.add_hero(athena)
+    assert team_two.heroes[0].deaths == 0
+    team_one.attack(team_two)
+    assert team_two.heroes[0].deaths == 1
+
+
+def test_team_defend():
+    heroes = []
+    for _ in range(0, 20):
+        heroes.append(create_hero(health=20))
+        print(heroes[_].health)
+    team_one = superheroes.Team("One")
+    for hero in heroes:
+        team_one.add_hero(hero)
+
+    deaths = team_one.defend(100)
+    for hero in team_one.heroes:
+        assert hero.health == 15
+
+    assert deaths == 0
+
+    assert team_one.defend(400) == 20
+
+
+def test_revive_heroes():
+    heroes = []
+    for _ in range(0, 20):
+        heroes.append(create_hero(health=60))
+
+    team_one = superheroes.Team("One")
+    for hero in heroes:
+        team_one.add_hero(hero)
+
+    team_one.defend(300)
+    for hero in team_one.heroes:
+        assert hero.health == 45
+    team_one.revive_heroes()
+    for hero in team_one.heroes:
+        assert hero.health == 60
