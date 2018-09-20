@@ -65,8 +65,7 @@ class Ability:
 class Weapen(Ability):
 
     def attack(self):
-        return random.randint(0,
-        self.attack_strength)
+        return random.randint(0, self.attack_strength)
 
 
 
