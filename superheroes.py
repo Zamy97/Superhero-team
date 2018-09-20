@@ -27,6 +27,8 @@ class Hero:
 
         for every_item in self.armors:
             total_defence += every_item.defense()
+        return total_defence
+
         if self.health == 0:
             return 0
 
