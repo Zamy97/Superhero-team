@@ -24,7 +24,7 @@ class Hero:
 
     def defend(self):
 
-
+        total_defence = 0
         for every_item in self.armors:
             total_defence += every_item.defense()
         return total_defence
@@ -44,7 +44,7 @@ class Hero:
          This method should add the number of kills to self.kills
 
          """
-        self.kills += num_kills
+         self.kills += num_kills
 
 class Ability:
 
@@ -59,12 +59,11 @@ class Ability:
          return attack
 
 
-
      def update_attack(self, new_strength):
          self.attack_strength = new_strength
 
 
-class Weapen(Ability):
+class Weapon(Ability):
 
     def attack(self):
         return random.randint(0, self.attack_strength)
@@ -82,7 +81,7 @@ class Team:
 
     # """ Add Hero Object to heroes list."""
 
-        self.heroes.append(hero)
+        self.heroes.append(Hero)
 
     def remove_hero(self, name):
 
@@ -94,8 +93,8 @@ class Team:
         # self.heroes.remove(hero)
         for hero in self.heroes:
             if hero.name == name:
-                self.heroes.remove()
-                return
+                self.heroes.remove(hero)
+                return 1
             hero_list += 1
         return 0
 
@@ -109,11 +108,11 @@ class Team:
         return 0
 
     def view_all_heroes(self):
-     """ Print out all heroes to the console """
+        """ Print out all heroes to the console """
         for hero in self.heroes:
             print(hero.name)
 
-    def attack(self,other_team):
+    def attack(self, other_team):
         """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
 
         It should call add_kill() on the each hero with the number of kills made.
@@ -122,10 +121,11 @@ class Team:
         total_attack = 0
         for hero in self.heros:
             total_attack += hero.attack()
-            dead_enemies = other_team.defend(other_team)
+        dead_enemies = other_team.defend(total_attack)
 
         for hero in self.heroes:
-            hero.add_kill(total_attack)
+            hero.add_kill(dead_enemies)
+
 
 
 
@@ -137,12 +137,37 @@ class Team:
 
         Return number of heroes killed in attack.
         """
+
+        total_defense = 0
+        for hero in self.heroes:
+            total_defence += hero.defend()
+
+        if damange_amount > total_defence:
+            dead_heroes = self.deal_damage(damage_amount - total_defence)
+            return dead_heroes
+
+
+
+
     def deal_damange(self, damage):
 
         """
         Divide the total damage amongst all heroes.
         Return the number of heros that died in attack.
         """
+        individual_damage = damage // len(self.heroes)
+
+        for hero in self.heroes:
+            hero
+
+
+
+
+
+
+
+
+
     def revive_heroes(self, health=100):
         """
         This method should reset all heroes health to their
