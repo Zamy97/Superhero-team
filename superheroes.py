@@ -177,6 +177,15 @@ class Team:
         This method should reset all heroes health to their
         original starting value.
         """
+        # get one of the heroes health first
+        #once you access the health you need to reset it to the original health that is given to you.
+        for hero in self.heroes:
+            each_heroes_health = hero.health
+            each_heroes_health = hero.start_health
+
+
+
+
     def stats(self):
         """
         This method should print the ratio of kills/deaths for each member of the team to the screen.
