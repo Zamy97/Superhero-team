@@ -157,15 +157,21 @@ class Team:
         """
         individual_damage = damage // len(self.heroes)
 
+
+
+        dead_death_heroes = 0
         for hero in self.heroes:
-            hero
+            heroes_health = hero.health
+            if heroes_health <= 0:
+                continue
+            if heroes_health <= individual_damage:
+                # The hero dies
+                dead_death_heroes += 1
+                hero.health = 0
+            if heroes_health >= individual_damage:
+                hero.health = hero.health - individual_damage
 
-
-
-
-
-
-
+        return dead_death_heroes
 
 
     def revive_heroes(self, health=100):
