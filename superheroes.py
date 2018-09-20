@@ -39,12 +39,12 @@ class Hero:
         if self.health <= 0:
             self.death += 1
 
-    def add_kill(self, num_kills):
+    def add_kill(self, number_kills):
          """
          This method should add the number of kills to self.kills
 
          """
-         self.kills += num_kills
+         self.kills += number_kills
 
 class Ability:
 
@@ -192,10 +192,29 @@ class Team:
 
         This data must be output to the terminal.
         """
+        # It should print the ratio of kills
+
+
+
     def update_kills(self):
         """
         This method should update each hero when there is a team kill.
         """
+        # First you need a place to save the number of kills that you might get
+        # then you need to access all the heroes so you could tell each what the kill number is
+        # Then add up the kills in where you were going to save the kills
+        #once it's all added up in the memory
+        #return it (optional)
+
+        total_team_killed = 0
+        for hero in self.heroes:
+            total_team_killed += hero.num_kills
+        return total_team_killed
+
+
+
+
+
 
 
 
