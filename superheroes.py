@@ -109,9 +109,50 @@ class Team:
         return 0
 
     def view_all_heroes(self):
-    #""" Print out all heroes to the console"""
+    # """ Print out all heroes to the console"""
         for hero in self.heroes:
             print(hero.name)
+            
+    def attack(self,other_team):
+        """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
+
+        It should call add_kill() on the each hero with the number of kils made.
+
+        """
+
+    def defend(self, damange_amount):
+        """
+        This method should calculate our team's total defense.
+        Any damage in excess of our team's total defense should be evenly distributed amongst all heroes with the deal_damage() method.
+
+        Return number of heroes killed in attack.
+        """
+    def deal_damange(self, damage):
+
+        """
+        Divide the total damage amongst all heroes.
+        Return the number of heros that died in attack.
+        """
+    def revive_heroes(self, health=100):
+        """
+        This method should reset all heroes health to their
+        original starting value.
+        """
+    def stats(self):
+        """
+        This method should print the ratio of kills/deaths for each member of the team to the screen.
+
+        This data must be output to the terminal.
+        """
+    def update_kills(self):
+        """
+        This method should update each hero when there is a team kill.
+        """
+
+
+
+
+
 
 class Armor:
 
