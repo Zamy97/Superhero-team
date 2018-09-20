@@ -157,8 +157,6 @@ class Team:
         """
         individual_damage = damage // len(self.heroes)
 
-
-
         dead_death_heroes = 0
         for hero in self.heroes:
             heroes_health = hero.health
