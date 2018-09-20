@@ -40,10 +40,10 @@ class Hero:
             self.death += 1
 
     def add_kill(self, num_kills):
-        # """
-        # This method should add the number of kills to self.kills
-        #
-        # """
+         """
+         This method should add the number of kills to self.kills
+
+         """
         self.kills += num_kills
 
 class Ability:
@@ -109,16 +109,26 @@ class Team:
         return 0
 
     def view_all_heroes(self):
-    # """ Print out all heroes to the console"""
+     """ Print out all heroes to the console """
         for hero in self.heroes:
             print(hero.name)
-            
+
     def attack(self,other_team):
         """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
 
-        It should call add_kill() on the each hero with the number of kils made.
+        It should call add_kill() on the each hero with the number of kills made.
 
         """
+        total_attack = 0
+        for hero in self.heros:
+            total_attack += hero.attack()
+            dead_enemies = other_team.defend(other_team)
+
+        for hero in self.heroes:
+            hero.add_kill(total_attack)
+
+
+
 
     def defend(self, damange_amount):
         """
