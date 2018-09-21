@@ -191,12 +191,17 @@ class Team:
         This data must be output to the terminal.
         """
         # To get ratio kills you divide kills number / heroes death chances!
+
+        kill_ratio_list = list()
+
         for hero in self.heroes:
             kill_ratio = hero.kills / hero.death
-        kill_ratio_list = list()
-        kill_ratio_list.append(self.heroes)
+            kill_ratio_list.append(kill_ratio)
 
-        print(kill_ratio)
+
+        # kill_ratio_list.append(self.heroes)
+
+        print(kill_ratio_list)
 
 
     def update_kills(self):
