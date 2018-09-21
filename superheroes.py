@@ -215,15 +215,6 @@ class Team:
         return total_team_killed
 
 
-
-
-
-
-
-
-
-
-
 class Armor:
 
     def __init__(self, name, defense):
@@ -237,14 +228,6 @@ class Armor:
     #""" Return a random value between 0 and the initialized defend strength.
     #"""
         return random.randint(0, self.defense)
-
-
-
-
-
-
-
-
 
 
 
