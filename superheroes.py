@@ -184,16 +184,19 @@ class Team:
             each_heroes_health = hero.start_health
 
 
-
-
     def stats(self):
         """
         This method should print the ratio of kills/deaths for each member of the team to the screen.
 
         This data must be output to the terminal.
         """
-        # It should print the ratio of kills
+        # To get ratio kills you divide kills number / heroes death chances!
+        for hero in self.heroes:
+            kill_ratio = hero.kills / hero.death
+        kill_ratio_list = list()
+        kill_ratio_list.append(self.heroes)
 
+        print(kill_ratio)
 
 
     def update_kills(self):
