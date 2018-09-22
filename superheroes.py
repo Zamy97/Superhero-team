@@ -192,10 +192,11 @@ class Team:
         """
         # To get ratio kills you divide kills number / heroes death chances!
 
-        kill_ratio_list = list()
 
+        kill_ratio_list = list()
         for hero in self.heroes:
             kill_ratio = hero.kills / hero.death
+
             kill_ratio_list.append(kill_ratio)
 
 
