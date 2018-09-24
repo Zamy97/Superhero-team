@@ -15,6 +15,9 @@ class Hero:
     def add_ability(self, ability):
         self.abilities.append(ability)
 
+    def add_armor(self, armor):
+        self.armors.append(armor)
+
     def attack(self):
 
         total = 0
@@ -24,13 +27,21 @@ class Hero:
 
     def defend(self):
 
-        total_defence = 0
-        for every_item in self.armors:
-            total_defence += every_item.defense()
-        return total_defence
+         if len(self.armors) >= 1:
+            for armor in self.armors:
+                if self.health < 1:
+                    return 0
+                else:
+                    return armor.defend()
+         else: return 0
 
-        if self.health == 0:
-            return 0
+        # total_defence = 0
+        # for every_item in self.armors:
+        #     total_defence += every_item.defense()
+        # return total_defence
+        #
+        # if self.health == 0:
+        #     return 0
 
 
     def take_damage(self, damage_amount):
@@ -126,10 +137,6 @@ class Team:
         for hero in self.heroes:
             hero.add_kill(dead_enemies)
 
-
-
-
-
     def defend(self, damange_amount):
         """
         This method should calculate our team's total defense.
@@ -145,9 +152,6 @@ class Team:
         if damange_amount > total_defence:
             dead_heroes = self.deal_damage(damage_amount - total_defence)
             return dead_heroes
-
-
-
 
     def deal_damange(self, damage):
 
