@@ -137,7 +137,7 @@ class Team:
         for hero in self.heroes:
             hero.add_kill(dead_enemies)
 
-    def defend(self, damange_amount):
+    def defend(self, damage_amount):
         """
         This method should calculate our team's total defense.
         Any damage in excess of our team's total defense should be evenly distributed amongst all heroes with the deal_damage() method.
@@ -147,9 +147,9 @@ class Team:
 
         total_defense = 0
         for hero in self.heroes:
-            total_defence += hero.defend()
+            total_defense += hero.defend()
 
-        if damange_amount > total_defence:
+        if damage_amount > total_defense:
             dead_heroes = self.deal_damage(damage_amount - total_defence)
             return dead_heroes
 
