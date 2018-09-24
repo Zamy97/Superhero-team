@@ -192,8 +192,11 @@ class Team:
         # get one of the heroes health first
         #once you access the health you need to reset it to the original health that is given to you.
         for hero in self.heroes:
-            each_heroes_health = hero.health
-            each_heroes_health = hero.start_health
+            # each_heroes_health = hero.health
+            # each_heroes_health =
+            hero.health = hero.start_health
+
+
 
 
     def stats(self):
