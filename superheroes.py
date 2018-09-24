@@ -8,7 +8,7 @@ class Hero:
         self.armors = list()
         self.start_health = health
         self.health = health
-        self.death = 0
+        self.deaths = 0
         self.kills = 0
 
 
