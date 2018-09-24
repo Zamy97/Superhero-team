@@ -130,7 +130,7 @@ class Team:
 
         """
         total_attack = 0
-        for hero in self.heros:
+        for hero in self.heroes:
             total_attack += hero.attack()
         dead_enemies = other_team.defend(total_attack)
 
