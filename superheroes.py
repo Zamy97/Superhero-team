@@ -254,7 +254,7 @@ class Arena:
 
     def team_battle(self):
         """
-        This method should continue to battle teams until oneor both teams are dead.
+        This method should continue to battle teams until one or both teams are dead.
 
         """
 
