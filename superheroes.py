@@ -48,7 +48,9 @@ class Hero:
 
         self.health -= damage_amount
         if self.health <= 0:
-            self.death += 1
+            self.deaths += 1
+
+        print(self.deaths)
 
     def add_kill(self, number_kills):
          """
@@ -199,7 +201,7 @@ class Team:
 
         kill_ratio_list = list()
         for hero in self.heroes:
-            kill_ratio = hero.kills / hero.death
+            kill_ratio = hero.kills / hero.deaths
 
             kill_ratio_list.append(kill_ratio)
 

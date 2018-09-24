@@ -287,7 +287,9 @@ def test_team_attack_deaths():
     assert team_two.heroes[0].deaths == 0
     team_one.attack(team_two)
     assert team_two.heroes[0].deaths == 1
-    assert 0 == 1
+    
+
+
 
 
 def test_team_defend():
@@ -323,4 +325,3 @@ def test_revive_heroes():
     team_one.revive_heroes()
     for hero in team_one.heroes:
         assert hero.health == 60
-        assert 45 == 60
