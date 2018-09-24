@@ -322,3 +322,4 @@ def test_revive_heroes():
     team_one.revive_heroes()
     for hero in team_one.heroes:
         assert hero.health == 60
+        assert 45 == 60

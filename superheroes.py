@@ -150,10 +150,10 @@ class Team:
             total_defense += hero.defend()
 
         if damage_amount > total_defense:
-            dead_heroes = self.deal_damage(damage_amount - total_defence)
+            dead_heroes = self.deal_damage(damage_amount - total_defense)
             return dead_heroes
 
-    def deal_damange(self, damage):
+    def deal_damage(self, damage):
 
         """
         Divide the total damage amongst all heroes.
