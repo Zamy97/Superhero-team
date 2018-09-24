@@ -35,22 +35,11 @@ class Hero:
                     return armor.defend()
          else: return 0
 
-        # total_defence = 0
-        # for every_item in self.armors:
-        #     total_defence += every_item.defense()
-        # return total_defence
-        #
-        # if self.health == 0:
-        #     return 0
-
-
     def take_damage(self, damage_amount):
 
         self.health -= damage_amount
         if self.health <= 0:
             self.deaths += 1
-
-        print(self.deaths)
 
     def add_kill(self, number_kills):
          """
@@ -81,29 +70,26 @@ class Weapon(Ability):
     def attack(self):
         return random.randint(0, self.attack_strength)
 
-
-
 class Team:
 
     def __init__(self, team_name):
-
         self.name = team_name
         self.heroes = list()
 
     def add_hero(self, Hero):
 
-    # """ Add Hero Object to heroes list."""
+    """ Add Hero Object to heroes list."""
 
         self.heroes.append(Hero)
 
     def remove_hero(self, name):
 
-    # """ Remove hero from heroes list.
-    #     If Hero isn't found return 0 """
+     """ Remove hero from heroes list.
+         If Hero isn't found return 0 """
 
         hero_list = 0
 
-        # self.heroes.remove(hero)
+
         for hero in self.heroes:
             if hero.name == name:
                 self.heroes.remove(hero)
@@ -137,13 +123,13 @@ class Team:
         for hero in self.heroes:
             total_attack += hero.attack()
         dead_enemies = other_team.defend(total_attack)
-        # print(dead_enemies)
+
         for hero in self.heroes:
             hero.add_kill(dead_enemies)
 
         for hero in other_team.heroes:
             hero.deaths += dead_enemies
-            # print(hero.deaths)
+
 
     def defend(self, damage_amount):
         """
@@ -192,11 +178,7 @@ class Team:
         # get one of the heroes health first
         #once you access the health you need to reset it to the original health that is given to you.
         for hero in self.heroes:
-            # each_heroes_health = hero.health
-            # each_heroes_health =
             hero.health = hero.start_health
-
-
 
 
     def stats(self):
@@ -213,9 +195,6 @@ class Team:
             kill_ratio = hero.kills / hero.deaths
 
             kill_ratio_list.append(kill_ratio)
-
-
-        # kill_ratio_list.append(self.heroes)
 
         print(kill_ratio_list)
 
@@ -246,8 +225,8 @@ class Armor:
 
     def defend(self):
 
-    #""" Return a random value between 0 and the initialized defend strength.
-    #"""
+    """ Return a random value between 0 and the initialized defend strength.
+    """
         return random.randint(0, self.defense)
 
 class Arena:
@@ -286,7 +265,7 @@ class Arena:
 
         """
 
-    
+
 
 
 
