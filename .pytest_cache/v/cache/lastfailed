@@ -1,6 +1,5 @@
 {
   "battle_test.py::test_revive_heroes": true,
-  "battle_test.py::test_team_attack_deaths": true,
   "superheroes.py": true,
   "superheros.py": true
 }

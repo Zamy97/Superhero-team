@@ -126,18 +126,24 @@ class Team:
             print(hero.name)
 
     def attack(self, other_team):
+        print("attack running")
         """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
 
         It should call add_kill() on the each hero with the number of kills made.
 
         """
         total_attack = 0
+
         for hero in self.heroes:
             total_attack += hero.attack()
         dead_enemies = other_team.defend(total_attack)
-
+        # print(dead_enemies)
         for hero in self.heroes:
             hero.add_kill(dead_enemies)
+
+        for hero in other_team.heroes:
+            hero.deaths += dead_enemies
+            # print(hero.deaths)
 
     def defend(self, damage_amount):
         """
