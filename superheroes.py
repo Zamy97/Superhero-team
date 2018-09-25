@@ -71,6 +71,8 @@ class Weapon(Ability):
     def attack(self):
         return random.randint(0, self.attack_strength)
 
+
+
 class Team:
 
     def __init__(self, team_name):
@@ -266,9 +268,9 @@ class Arena:
 
             give_weapen_to_hero = input("Do you want to give any weapen to your hero? yes or no?")
 
-            if give_weapen_to_hero.lower = "yes":
+            if give_weapen_to_hero.lower == "yes":
                 give_weapen_to_hero = True
-            elif give_weapen_to_hero.lower = "no":
+            elif give_weapen_to_hero.lower == "no":
                 give_weapen_to_hero = False
 
         # if the user answers yes then ask them what kind of weapen that they want to give to their heroes.
@@ -283,6 +285,29 @@ class Arena:
         # After adding the weapon to the weapon class give tat weapon to the hero
 
             name_of_the_hero.add_weapon(heroes_weapon)
+
+            input_armor_yes_no? = input(" Do you want to add armor to your hero? yes or no?")
+
+            if input_armor_yes_no.lower == "yes":
+                input_armor_yes_no = True
+
+            elif input_armor_yes_no.lower == "no":
+                input_armor_yes_no = False
+
+        # If they say yes then let them add the armor for their heroe.
+
+        while armor_input:
+            input_armor = input("Enter an armor that you want to give to your hero:")
+
+        # After getting the name of the armor add it to the Ability list
+
+            heroes_armor_from_input = Armor(input_armor)
+
+        # Once you have have the armor in the Armor class give that armor to the heroes
+
+            name_of_the_hero.add_armor(heroes_armor_from_input)
+
+
 
 
 
