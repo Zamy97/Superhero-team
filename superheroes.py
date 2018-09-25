@@ -243,13 +243,13 @@ class Arena:
         while number_of_heroes < 2:
             hero_name_input = input("Enter hero for your team: ")
         # Whatever name they chose for their hero assign it to the name_of_the_hero!
-            name_of_the_hero = Hero(hero)
+            name_of_the_hero = Hero(hero_name_input)
 
         #Ask users if they want to give any abilities to the heros
             input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
             if input_abilities_for_your_hero.lower == "yes":
             input_abilities_for_your_hero = True
-            elif input_abilities_for_your_hero.lower = "no":
+        elif input_abilities_for_your_hero.lower == "no":
             input_abilities_for_your_hero = False
 
         # If the user says yes then let them input abilities that they want for their hero.
@@ -266,25 +266,25 @@ class Arena:
 
         #Ask users if they want to give any weapen to the heros
 
-            give_weapen_to_hero = input("Do you want to give any weapen to your hero? yes or no?")
-
-            if give_weapen_to_hero.lower == "yes":
-                give_weapen_to_hero = True
-            elif give_weapen_to_hero.lower == "no":
-                give_weapen_to_hero = False
-
-        # if the user answers yes then ask them what kind of weapen that they want to give to their heroes.
-
-        while give_weapon_to_hero:
-            input_weapon = input("Enter a weapen for your hero:")
-
-        # After they are done inputting the weapen name then add it to the weapen object.
-
-            heroes_weapon = Weapon(input_weapon)
-
-        # After adding the weapon to the weapon class give tat weapon to the hero
-
-            name_of_the_hero.add_weapon(heroes_weapon)
+        #     give_weapen_to_hero = input("Do you want to give any weapen to your hero? yes or no?")
+        #
+        #     if give_weapen_to_hero.lower == "yes":
+        #         give_weapen_to_hero = True
+        #     elif give_weapen_to_hero.lower == "no":
+        #         give_weapen_to_hero = False
+        #
+        # # if the user answers yes then ask them what kind of weapen that they want to give to their heroes.
+        #
+        # while give_weapon_to_hero:
+        #     input_weapon = input("Enter a weapen for your hero:")
+        #
+        # # After they are done inputting the weapen name then add it to the weapen object.
+        #
+        #     heroes_weapon = Weapon(input_weapon)
+        #
+        # # After adding the weapon to the weapon class give tat weapon to the hero
+        #
+        #     name_of_the_hero.add_weapon(heroes_weapon)
 
             input_armor_yes_no? = input(" Do you want to add armor to your hero? yes or no?")
 
@@ -306,6 +306,8 @@ class Arena:
         # Once you have have the armor in the Armor class give that armor to the heroes
 
             name_of_the_hero.add_armor(heroes_armor_from_input)
+
+
 
 
 
