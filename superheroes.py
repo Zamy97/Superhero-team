@@ -105,7 +105,8 @@ class Team:
             print(hero.name)
 
     def attack(self, other_team):
-        """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
+        """
+        This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
 
         It should call add_kill() on the each hero with the number of kills made.
 
@@ -239,12 +240,40 @@ class Arena:
 
         while number_of_heroes < 2:
             hero_name_input = input("Enter hero for your team: ")
-            # Whatever name they chose for their hero assign it to the name_of_the_hero!
+        # Whatever name they chose for their hero assign it to the name_of_the_hero!
             name_of_the_hero = Hero(hero)
-            #Ask users if they want to give any abilities to the heros
+
+        #Ask users if they want to give any abilities to the heros
             input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
-            if input_abilities_for_your_hero == "yes":
-                input_abilities_for_your_hero = True
+            if input_abilities_for_your_hero.lower == "yes":
+            input_abilities_for_your_hero = True
+            elif input_abilities_for_your_hero.lower = "no":
+            input_abilities_for_your_hero = False
+
+        # If the user says yes then let them input abilities that they want for their hero.
+
+        while input_abilities_for_your_hero:
+            abilities_name = input("Enter a name of the ability for your hero:")
+        # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
+
+            heroes_ability = Ability(abilities_name)
+
+        # After you are done adding it to the ability class, give that ability to the hero
+
+            name_of_the_hero.add_ability(heroes_ability)
+
+        #Ask users if they want to give any weapen to the heros
+
+        give_weapen_to_hero = input("Do you want to give any weapen to your hero? yes or no?")
+
+
+
+
+
+
+
+
+
 
 
 
