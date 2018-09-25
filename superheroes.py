@@ -227,6 +227,10 @@ class Arena:
 
     def build_team_one(self):
 
+        team_one_name = input("Chose a name for your first team?")
+        # Whatever name they chose assign it to the team one above!
+        self.team_one = Team(team_one_name)
+
 
     def build_team_two(self):
 
