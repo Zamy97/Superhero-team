@@ -227,9 +227,33 @@ class Arena:
 
     def build_team_one(self):
 
+        print("let's build a team to fight the other team")
+
+        number_of_heroes = 1
+
         team_one_name = input("Chose a name for your first team?")
         # Whatever name they chose assign it to the team one above!
         self.team_one = Team(team_one_name)
+
+        print("now that you are done choosing your team name let's chose a hero for your team")
+
+        while number_of_heroes < 2:
+            hero_name_input = input("Enter hero for your team: ")
+            # Whatever name they chose for their hero assign it to the name_of_the_hero!
+            name_of_the_hero = Hero(hero)
+            #Ask users if they want to give any abilities to the heros
+            input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
+            if input_abilities_for_your_hero == "yes":
+                input_abilities_for_your_hero = True
+
+
+
+
+
+
+
+
+
 
 
     def build_team_two(self):
