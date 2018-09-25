@@ -217,36 +217,23 @@ class Armor:
     def defend(self):
         return random.randint(0, self.defense)
 
-# class Arena:
-#
-#     def __init__(self):
-#         """
-#         Declare variables
-#
-#         """
-#         self.team_one = None
-#         self.team_two = None
-#
-#
-#
-#     def build_team_one(self):
-#
-#
-#     def build_team_two(self):
-#
-#
-#     def team_battle(self):
-#         """
-#         This method should continue to battle teams until one or both teams are dead.
-#
-#         """
-#
-#     def show_stats(self):
-#         """
-#         This method should print out the battle statistics
-#         including each heroes kill/death ratio.
-#
-#         """
+class Arena:
+
+    def __init__(self):
+        self.team_one = None
+        self.team_two = None
+
+
+
+    def build_team_one(self):
+
+
+    def build_team_two(self):
+
+
+    def team_battle(self):
+
+    def show_stats(self):
 
 
 
