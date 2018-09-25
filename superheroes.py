@@ -1,5 +1,6 @@
 import random
 
+
 class Hero:
 
     def __init__(self, name, health=100):
@@ -10,6 +11,7 @@ class Hero:
         self.health = health
         self.deaths = 0
         self.kills = 0
+
 
 
     def add_ability(self, ability):
@@ -44,7 +46,6 @@ class Hero:
     def add_kill(self, number_kills):
          """
          This method should add the number of kills to self.kills
-
          """
          self.kills += number_kills
 
@@ -77,19 +78,11 @@ class Team:
         self.heroes = list()
 
     def add_hero(self, Hero):
-
-    """ Add Hero Object to heroes list."""
-
         self.heroes.append(Hero)
 
     def remove_hero(self, name):
 
-     """ Remove hero from heroes list.
-         If Hero isn't found return 0 """
-
         hero_list = 0
-
-
         for hero in self.heroes:
             if hero.name == name:
                 self.heroes.remove(hero)
@@ -112,7 +105,6 @@ class Team:
             print(hero.name)
 
     def attack(self, other_team):
-        print("attack running")
         """ This method should total our teams attack strength and call the defend() method on the rival team that is passed in.
 
         It should call add_kill() on the each hero with the number of kills made.
@@ -189,7 +181,6 @@ class Team:
         """
         # To get ratio kills you divide kills number / heroes death chances!
 
-
         kill_ratio_list = list()
         for hero in self.heroes:
             kill_ratio = hero.kills / hero.deaths
@@ -224,46 +215,38 @@ class Armor:
         self.defense = defense
 
     def defend(self):
-
-    """ Return a random value between 0 and the initialized defend strength.
-    """
         return random.randint(0, self.defense)
 
-class Arena:
-
-    def __init__(self):
-        """
-        Declare variables
-
-        """
-
-        self.team_one = None
-        self.team_two = None
-
-    def build_team_one(self):
-        """
-        This method should allow a user to build team one.
-
-        """
-
-    def build_team_two(self):
-        """
-        This method should allow a user to build team two.
-
-        """
-
-    def team_battle(self):
-        """
-        This method should continue to battle teams until one or both teams are dead.
-
-        """
-
-    def show_stats(self):
-        """
-        This method should print out the battle statistics
-        including each heroes kill/death ratio.
-
-        """
+# class Arena:
+#
+#     def __init__(self):
+#         """
+#         Declare variables
+#
+#         """
+#         self.team_one = None
+#         self.team_two = None
+#
+#
+#
+#     def build_team_one(self):
+#
+#
+#     def build_team_two(self):
+#
+#
+#     def team_battle(self):
+#         """
+#         This method should continue to battle teams until one or both teams are dead.
+#
+#         """
+#
+#     def show_stats(self):
+#         """
+#         This method should print out the battle statistics
+#         including each heroes kill/death ratio.
+#
+#         """
 
 
 
