@@ -1,6 +1,5 @@
 import random
 
-
 class Hero:
 
     def __init__(self, name, health=100):
@@ -319,6 +318,22 @@ class Arena:
         team_two_name = input("Chose a name for your second team")
 
         self.team_two = Team(team_two_name)
+
+        print("let's chose a hero for your second team")
+
+        while team_two_heroes < 2:
+            team_two_hero_input = inout("Enter a hero name for four team: ")
+
+            second_hero = Hero(team_two_hero_input)
+
+
+        team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
+
+        if team_two_hero_abilities_input.lower == "yes":
+            team_two_hero_abilities_input = True
+
+        elif team_two_hero_abilities_input.lower == "no":
+            team_two_hero_abilities_input = False
 
 
 
