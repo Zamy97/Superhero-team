@@ -329,11 +329,11 @@ class Arena:
 
         team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
 
-        if team_two_hero_abilities_input.lower == "yes":
-            team_two_hero_abilities_input = True
+            if team_two_hero_abilities_input.lower == "yes":
+                team_two_hero_abilities_input = True
 
-        elif team_two_hero_abilities_input.lower == "no":
-            team_two_hero_abilities_input = False
+            elif team_two_hero_abilities_input.lower == "no":
+                team_two_hero_abilities_input = False
 
         while team_two_hero_abilities_input:
             team2_abilities_name = input("Enter an ability name that you want to give to your hero: ")
@@ -342,6 +342,22 @@ class Arena:
             team2_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
 
             second_hero.add_ability(team2_heroes_ability)
+
+        team2_input_armor_yes_no = input("Do you want to give armor to your hero?")
+
+
+            if team2_input_armor_yes_no.lower == "yes":
+                team2_input_armor_yes_no = True
+
+            elif team2_input_armor_yes_no.lower == "no":
+                team2_input_armor_yes_no = False
+
+
+        while team2_input_armor_yes_no:
+            
+
+
+
 
 
 
