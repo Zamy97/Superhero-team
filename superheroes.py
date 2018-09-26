@@ -379,7 +379,13 @@ class Arena:
         pass
 
     def show_stats(self):
-        pass
+
+        # Why do I have two braces after the stats method??
+        # How is stats method is being called here without creating an object of the Team class?
+        #What is happening before the program gets to this two lines of code?
+
+        print(self.team_one.stats())
+        print(self.team_two.stats())
 
 
 
