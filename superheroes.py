@@ -316,6 +316,11 @@ class Arena:
 
 
 
+
+
+
+
+
 if __name__ == "__main__":
     # hero = Hero(6)
     # print (hero.name)
@@ -351,11 +356,11 @@ if __name__ == "__main__":
 
 
 
-    # hero = Hero("Spider Man")
-    # print(hero.attack())
-    # ability = Ability("Jumps", 300)
-    # hero.add_ability(ability)
-    # print(hero.attack())
-    # new_ability = Ability("Web Power", 500)
-    # hero.add_ability(new_ability)
-    # print(hero.attack())
+    hero = Hero("Spider Man")
+    print(hero.attack())
+    ability = Ability("Jumps", 300)
+    hero.add_ability(ability)
+    print(hero.attack())
+    new_ability = Ability("Web Power", 500)
+    hero.add_ability(new_ability)
+    print(hero.attack())
