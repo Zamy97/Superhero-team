@@ -335,6 +335,14 @@ class Arena:
         elif team_two_hero_abilities_input.lower == "no":
             team_two_hero_abilities_input = False
 
+        while team_two_hero_abilities_input:
+            team2_abilities_name = input("Enter an ability name that you want to give to your hero: ")
+            team2_attack_strength_value = input("Enter a value to give strength to your hero:")
+
+            team2_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
+
+            second_hero.add_ability(team2_heroes_ability)
+
 
 
 
