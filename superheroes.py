@@ -53,7 +53,7 @@ class Ability:
 
      def __init__(self, name, attack_strength):
          self.name = name
-         self.attack_strength = attack_strength
+         self.attack_strength = int(attack_strength)
 
 
      def attack(self):
@@ -215,7 +215,7 @@ class Armor:
 
     #    """ Instantinate name and defence steength. """
         self.name = name
-        self.defense = defense
+        self.defense = int(defense)
 
     def defend(self):
         return random.randint(0, self.defense)
@@ -243,50 +243,31 @@ class Arena:
         while number_of_heroes < 2:
             hero_name_input = input("Enter hero for your team: ")
         # Whatever name they chose for their hero assign it to the name_of_the_hero!
-            name_of_the_hero = Hero(hero_name_input)
+            first_hero = Hero(hero_name_input)
 
         #Ask users if they want to give any abilities to the heros
             input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
             if input_abilities_for_your_hero.lower == "yes":
-            input_abilities_for_your_hero = True
-        elif input_abilities_for_your_hero.lower == "no":
-            input_abilities_for_your_hero = False
+                input_abilities_for_your_hero = True
+            elif input_abilities_for_your_hero.lower == "no":
+                input_abilities_for_your_hero = False
 
         # If the user says yes then let them input abilities that they want for their hero.
 
         while input_abilities_for_your_hero:
             abilities_name = input("Enter a name of the ability for your hero:")
+            attack_strength_value = input("Enter a value to give attack strength to your hero: ")
         # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
 
-            heroes_ability = Ability(abilities_name)
+            heroes_ability = Ability(abilities_name, attack_strength_value)
 
         # After you are done adding it to the ability class, give that ability to the hero
 
-            name_of_the_hero.add_ability(heroes_ability)
+            first_hero.add_ability(heroes_ability)
 
-        #Ask users if they want to give any weapen to the heros
 
-        #     give_weapen_to_hero = input("Do you want to give any weapen to your hero? yes or no?")
-        #
-        #     if give_weapen_to_hero.lower == "yes":
-        #         give_weapen_to_hero = True
-        #     elif give_weapen_to_hero.lower == "no":
-        #         give_weapen_to_hero = False
-        #
-        # # if the user answers yes then ask them what kind of weapen that they want to give to their heroes.
-        #
-        # while give_weapon_to_hero:
-        #     input_weapon = input("Enter a weapen for your hero:")
-        #
-        # # After they are done inputting the weapen name then add it to the weapen object.
-        #
-        #     heroes_weapon = Weapon(input_weapon)
-        #
-        # # After adding the weapon to the weapon class give tat weapon to the hero
-        #
-        #     name_of_the_hero.add_weapon(heroes_weapon)
+            input_armor_yes_no = input(" Do you want to add armor to your hero? yes or no? ")
 
-            input_armor_yes_no? = input(" Do you want to add armor to your hero? yes or no?")
 
             if input_armor_yes_no.lower == "yes":
                 input_armor_yes_no = True
@@ -296,51 +277,35 @@ class Arena:
 
         # If they say yes then let them add the armor for their heroe.
 
-        while armor_input:
-            input_armor = input("Enter an armor that you want to give to your hero:")
+        while input_armor_yes_no:
+            input_armor_name = input("Enter an armor name that you want to give to your hero:")
+            input_armor_defense = input("enter a value to defense the hero's armor: ")
+
 
         # After getting the name of the armor add it to the Ability list
 
-            heroes_armor_from_input = Armor(input_armor)
+            heroes_armor_from_input = Armor(input_armor_name, input_armor_defense)
 
         # Once you have have the armor in the Armor class give that armor to the heroes
 
-            name_of_the_hero.add_armor(heroes_armor_from_input)
+            first_hero.add_armor(heroes_armor_from_input)
 
 
+            # first_hero.add_hero(self.team_one)
 
+            # class_name.attribute_of_class(argument_for_attribute)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            self.team_one.add_hero(first_hero)
 
     def build_team_two(self):
+        pass
 
 
     def team_battle(self):
+        pass
 
     def show_stats(self):
+        pass
 
 
 
@@ -352,11 +317,45 @@ class Arena:
 
 
 if __name__ == "__main__":
-    hero = Hero("Spider Man")
-    print(hero.attack())
-    ability = Ability("Jumps", 300)
-    hero.add_ability(ability)
-    print(hero.attack())
-    new_ability = Ability("Web Power", 500)
-    hero.add_ability(new_ability)
-    print(hero.attack())
+    # hero = Hero(6)
+    # print (hero.name)
+
+    # hero_name_input = input("Enter hero for your team: ")
+    # name_of_the_hero = Hero(hero_name_input)
+    # print(name_of_the_hero)
+    # print(44)
+    # print(hero_name_input //  2)
+
+    # attack_strength_value = input("Enter a value to give attack strength to your hero: ")
+    #
+    #
+    # print(int(attack_strength_value) // 2)
+
+    abilities_name = input("Enter a name of the ability for your hero:")
+    attack_strength_value = input("Enter a value to give attack strength to your hero: ")
+
+
+    heroes_ability = Ability(abilities_name, attack_strength_value)
+    print(type(heroes_ability.attack_strength))
+    print(type(heroes_ability.attack_strength))
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # hero = Hero("Spider Man")
+    # print(hero.attack())
+    # ability = Ability("Jumps", 300)
+    # hero.add_ability(ability)
+    # print(hero.attack())
+    # new_ability = Ability("Web Power", 500)
+    # hero.add_ability(new_ability)
+    # print(hero.attack())
