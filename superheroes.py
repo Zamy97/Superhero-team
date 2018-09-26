@@ -232,7 +232,7 @@ class Arena:
 
         print("let's build a team to fight the other team")
 
-        number_of_heroes = 1
+        team_one_heroes = 1
 
         team_one_name = input("Chose a name for your first team?")
         # Whatever name they chose assign it to the team one above!
@@ -240,7 +240,7 @@ class Arena:
 
         print("now that you are done choosing your team name let's chose a hero for your team")
 
-        while number_of_heroes < 2:
+        while team_one_heroes < 2:
             hero_name_input = input("Enter hero for your team: ")
         # Whatever name they chose for their hero assign it to the name_of_the_hero!
             first_hero = Hero(hero_name_input)
@@ -290,15 +290,43 @@ class Arena:
 
             first_hero.add_armor(heroes_armor_from_input)
 
-
-            # first_hero.add_hero(self.team_one)
-
-            # class_name.attribute_of_class(argument_for_attribute)
+        # Let the user add the heroes in the team
 
             self.team_one.add_hero(first_hero)
 
+
+
     def build_team_two(self):
-        pass
+
+        # Whatever name they chose assign it to the team one above!
+        # Whatever name they chose for their hero assign it to the name_of_the_hero!
+        #Ask users if they want to give any abilities to the heros
+        # If the user says yes then let them input abilities that they want for their hero.
+        # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
+        # After you are done adding it to the ability class, give that ability to the hero
+        # If they say yes then let them add the armor for their heroe.
+        # After getting the name of the armor add it to the Ability list
+        # Once you have have the armor in the Armor class give that armor to the heroes
+        # Let the user add the heroes in the team
+
+        team
+
+
+        print("let's build the second team now")
+
+        team_two_heroes = 1
+
+        team_two_name = input("Chose a name for your second team")
+
+        self.team_two = Team(team_two_name)
+
+
+
+
+
+
+
+
 
 
     def team_battle(self):
@@ -306,6 +334,16 @@ class Arena:
 
     def show_stats(self):
         pass
+
+
+
+
+
+
+
+
+
+
 
 
 
