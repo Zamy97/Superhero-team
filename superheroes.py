@@ -336,25 +336,32 @@ class Arena:
                 team_two_hero_abilities_input = False
 
         while team_two_hero_abilities_input:
-            team2_abilities_name = input("Enter an ability name that you want to give to your hero: ")
-            team2_attack_strength_value = input("Enter a value to give strength to your hero:")
+            second_abilities_name = input("Enter an ability name that you want to give to your hero: ")
+            second_attack_strength_value = input("Enter a value to give strength to your hero:")
 
-            team2_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
+            second_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
 
             second_hero.add_ability(team2_heroes_ability)
 
-        team2_input_armor_yes_no = input("Do you want to give armor to your hero?")
+        second_input_armor_yes_no = input("Do you want to give armor to your hero?")
 
 
             if team2_input_armor_yes_no.lower == "yes":
-                team2_input_armor_yes_no = True
+                second_input_armor_yes_no = True
 
             elif team2_input_armor_yes_no.lower == "no":
-                team2_input_armor_yes_no = False
+                second_input_armor_yes_no = False
 
 
         while team2_input_armor_yes_no:
-            
+            second_armor_name = input("Enter an armor name that you want to give to your hero for your second team: ")
+            second_input_armor_defense = input("Enter a value to defense the hero's armo: ")
+
+            second_heroes_armor_from_input = Armor(second_armor_name, second_input_armor_defense)
+
+            second_hero.add_armor(second_heroes_armor_from_input)
+
+            self.team_two.add_hero(second_hero)
 
 
 
