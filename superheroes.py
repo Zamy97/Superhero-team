@@ -408,12 +408,15 @@ class Arena:
         # Why do I have two braces after the stats method??
         # How is stats method is being called here without creating an object of the Team class?
         #What is happening before the program gets to this two lines of code?
-
+        print("Show stats for team one")
         print(self.team_one.stats())
+        print("Show stats for team two")
         print(self.team_two.stats())
 
 
-
+myArena = Arena()
+myArena.team_battle()
+myArena.show_stats()
 
 
 if __name__ == "__main__":
