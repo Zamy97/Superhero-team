@@ -315,10 +315,10 @@ class Arena:
 
         team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
 
-            if team_two_hero_abilities_input.lower() == "yes":
+        if team_two_hero_abilities_input.lower() == "yes":
                 second_hero_abilities_input = True
 
-            elif second_hero_abilities_input.lower() == "no":
+        elif second_hero_abilities_input.lower() == "no":
                 second_hero_abilities_input = False
 
         while second_hero_abilities_input:
@@ -332,10 +332,10 @@ class Arena:
         second_input_armor_yes_no = input("Do you want to give armor to your hero?")
 
 
-            if team2_input_armor_yes_no.lower() == "yes":
+        if team2_input_armor_yes_no.lower() == "yes":
                 second_input_armor_yes_no = True
 
-            elif team2_input_armor_yes_no.lower() == "no":
+        elif team2_input_armor_yes_no.lower() == "no":
                 second_input_armor_yes_no = False
 
 
@@ -368,8 +368,8 @@ class Arena:
 
 
         # Assign each of the team to the team class!
-        self.build_team_one(team_one_name)
-        self.build_team_two(team_two_name)
+        self.build_team_one(team_one)
+        self.build_team_two(team_two)
 
         # Show the user of what the heroes stats is from each team!
 
@@ -414,9 +414,9 @@ class Arena:
         print(self.team_two.stats())
 
 
-myArena = Arena()
-myArena.team_battle()
-myArena.show_stats()
+# myArena = Arena()
+# myArena.team_battle()
+# myArena.show_stats()
 
 
 if __name__ == "__main__":
