@@ -384,8 +384,21 @@ class Arena:
 
             while game_battle_one != True and game_battle_two != True:
                 self.team_one.attack(self.team_two)
-                game_battle_two = self.team_two.dead_heroes()
+                game_battle_one = self.team_two.dead_heroes()
+                game_battle_two = self.team_one.dead_heroes()
+                self.team_two.attack(self.team_one)
+                game_battle_one = self.team_two.dead_heroes()
+                game_battle_two = self.team_one.dead_heroes()
+        else:
+            while game_battle_one != True and game_battle_two != True:
+                self.team_two.attack(self.team_one)
                 game_battle_one = self.team_one.dead_heroes()
+                game_battle_one = self.team_two.dead_heroes()
+                self.team_one.attack(team_two)
+                game_battle_one = self.team_one.dead_heroes()
+                game_battle_two = self.team_two.dead_heroes()
+                
+
 
 
 
