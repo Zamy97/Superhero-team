@@ -149,19 +149,19 @@ class Team:
         """
         individual_damage = damage // len(self.heroes)
 
-        dead_death_heroes = 0
+        dead_heroes = 0
         for hero in self.heroes:
             heroes_health = hero.health
             if heroes_health <= 0:
                 continue
             if heroes_health <= individual_damage:
                 # The hero dies
-                dead_death_heroes += 1
+                dead_heroes += 1
                 hero.health = 0
             if heroes_health >= individual_damage:
                 hero.health = hero.health - individual_damage
 
-        return dead_death_heroes
+        return dead_heroes
 
 
     def revive_heroes(self, health=100):
@@ -363,9 +363,30 @@ class Arena:
 
     def team_battle(self):
 
+        game_battle_one = False
+        game_battle_two = False
+
+
         # Assign each of the team to the team class!
         self.build_team_one(team_one_name)
         self.build_team_two(team_two_name)
+
+        # Show the user of what the heroes stats is from each team!
+
+        print(self.team_one.heroes_stats())
+        print(self.team_two.heroes_stats())
+
+        # Let's chose a random number and use that to start the game.
+
+        random_num = random.randint(0,1)
+
+        if random_num == True:
+
+            while game_battle_one != True and game_battle_two != True:
+                self.team_one.attack(self.team_two)
+                game_battle_two = self.team_two.dead_heroes()
+                game_battle_one = self.team_one.dead_heroes()
+
 
 
 
