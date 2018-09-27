@@ -308,7 +308,7 @@ class Arena:
         print("let's chose a hero for your second team")
 
         while team_two_heroes < 2:
-            team_two_hero_input = inout("Enter a hero name for four team: ")
+            second_hero_input = inout("Enter a hero name for four team: ")
 
             second_hero = Hero(team_two_hero_input)
 
@@ -316,12 +316,12 @@ class Arena:
         team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
 
             if team_two_hero_abilities_input.lower == "yes":
-                team_two_hero_abilities_input = True
+                second_hero_abilities_input = True
 
-            elif team_two_hero_abilities_input.lower == "no":
-                team_two_hero_abilities_input = False
+            elif second_hero_abilities_input.lower == "no":
+                second_hero_abilities_input = False
 
-        while team_two_hero_abilities_input:
+        while second_hero_abilities_input:
             second_abilities_name = input("Enter an ability name that you want to give to your hero: ")
             second_attack_strength_value = input("Enter a value to give strength to your hero:")
 
@@ -362,7 +362,12 @@ class Arena:
 
 
     def team_battle(self):
-        pass
+
+        # Assign each of the team to the team class!
+        self.build_team_one(team_one_name)
+        self.build_team_two(team_two_name)
+
+
 
     def show_stats(self):
 
