@@ -246,9 +246,9 @@ class Arena:
 
         #Ask users if they want to give any abilities to the heros
             input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
-            if input_abilities_for_your_hero.lower == "yes":
+            if input_abilities_for_your_hero.lower() == "yes":
                 input_abilities_for_your_hero = True
-            elif input_abilities_for_your_hero.lower == "no":
+            elif input_abilities_for_your_hero.lower() == "no":
                 input_abilities_for_your_hero = False
 
         # If the user says yes then let them input abilities that they want for their hero.
@@ -268,10 +268,10 @@ class Arena:
             input_armor_yes_no = input(" Do you want to add armor to your hero? yes or no? ")
 
 
-            if input_armor_yes_no.lower == "yes":
+            if input_armor_yes_no.lower() == "yes":
                 input_armor_yes_no = True
 
-            elif input_armor_yes_no.lower == "no":
+            elif input_armor_yes_no.lower() == "no":
                 input_armor_yes_no = False
 
         # If they say yes then let them add the armor for their heroe.
@@ -315,10 +315,10 @@ class Arena:
 
         team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
 
-            if team_two_hero_abilities_input.lower == "yes":
+            if team_two_hero_abilities_input.lower() == "yes":
                 second_hero_abilities_input = True
 
-            elif second_hero_abilities_input.lower == "no":
+            elif second_hero_abilities_input.lower() == "no":
                 second_hero_abilities_input = False
 
         while second_hero_abilities_input:
@@ -332,10 +332,10 @@ class Arena:
         second_input_armor_yes_no = input("Do you want to give armor to your hero?")
 
 
-            if team2_input_armor_yes_no.lower == "yes":
+            if team2_input_armor_yes_no.lower() == "yes":
                 second_input_armor_yes_no = True
 
-            elif team2_input_armor_yes_no.lower == "no":
+            elif team2_input_armor_yes_no.lower() == "no":
                 second_input_armor_yes_no = False
 
 
@@ -397,7 +397,7 @@ class Arena:
                 self.team_one.attack(team_two)
                 game_battle_one = self.team_one.dead_heroes()
                 game_battle_two = self.team_two.dead_heroes()
-                
+
 
 
 
