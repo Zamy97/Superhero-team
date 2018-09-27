@@ -124,6 +124,10 @@ class Team:
         for hero in other_team.heroes:
             hero.deaths += dead_enemies
 
+            return dead_enemies
+
+
+
 
     def defend(self, damage_amount):
         """
@@ -352,15 +356,6 @@ class Arena:
 
 
 
-
-
-
-
-
-
-
-
-
     def team_battle(self):
 
         game_battle_one = False
@@ -384,7 +379,7 @@ class Arena:
 
             while game_battle_one != True and game_battle_two != True:
                 self.team_one.attack(self.team_two)
-                game_battle_one = self.team_two.dead_heroes()
+                game_battle_one = self.team_two.dead_heroes
                 game_battle_two = self.team_one.dead_heroes()
                 self.team_two.attack(self.team_one)
                 game_battle_one = self.team_two.dead_heroes()
