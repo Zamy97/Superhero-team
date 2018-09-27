@@ -297,20 +297,6 @@ class Arena:
 
     def build_team_two(self):
 
-        # Whatever name they chose assign it to the team one above!
-        # Whatever name they chose for their hero assign it to the name_of_the_hero!
-        #Ask users if they want to give any abilities to the heros
-        # If the user says yes then let them input abilities that they want for their hero.
-        # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
-        # After you are done adding it to the ability class, give that ability to the hero
-        # If they say yes then let them add the armor for their heroe.
-        # After getting the name of the armor add it to the Ability list
-        # Once you have have the armor in the Armor class give that armor to the heroes
-        # Let the user add the heroes in the team
-
-        team
-
-
         print("let's build the second team now")
 
         team_two_heroes = 1
@@ -462,16 +448,6 @@ if __name__ == "__main__":
     heroes_ability = Ability(abilities_name, attack_strength_value)
     print(type(heroes_ability.attack_strength))
     print(type(heroes_ability.attack_strength))
-
-
-
-
-
-
-
-
-
-
 
 
 
