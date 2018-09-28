@@ -358,40 +358,78 @@ class Arena:
 
     def team_battle(self):
 
-        game_battle_one = False
-        game_battle_two = False
+        team_two_deaths = 0
+        team_one_deaths = 0
 
 
-        # Assign each of the team to the team class!
-        self.build_team_one(team_one)
-        self.build_team_two(team_two)
+        while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
+            team_one_deaths = self.team_one.attack(self.team_two)
+            team_two_deaths = self.team_two.attack(self.team_one)
 
-        # Show the user of what the heroes stats is from each team!
 
-        print(self.team_one.heroes_stats())
-        print(self.team_two.heroes_stats())
 
-        # Let's chose a random number and use that to start the game.
 
-        random_num = random.randint(0,1)
 
-        if random_num == True:
 
-            while game_battle_one != True and game_battle_two != True:
-                self.team_one.attack(self.team_two)
-                game_battle_one = self.team_two.dead_heroes
-                game_battle_two = self.team_one.dead_heroes()
-                self.team_two.attack(self.team_one)
-                game_battle_one = self.team_two.dead_heroes()
-                game_battle_two = self.team_one.dead_heroes()
-        else:
-            while game_battle_one != True and game_battle_two != True:
-                self.team_two.attack(self.team_one)
-                game_battle_one = self.team_one.dead_heroes()
-                game_battle_one = self.team_two.dead_heroes()
-                self.team_one.attack(team_two)
-                game_battle_one = self.team_one.dead_heroes()
-                game_battle_two = self.team_two.dead_heroes()
+
+
+
+
+
+
+        # game_battle_one = False
+        # game_battle_two = False
+        #
+        #
+        # # Assign each of the team to the team class!
+        # self.build_team_one(team_one)
+        # self.build_team_two(team_two)
+        #
+        # # Show the user of what the heroes stats is from each team!
+        #
+        # print(self.team_one.heroes_stats())
+        # print(self.team_two.heroes_stats())
+        #
+        # # Let's chose a random number and use that to start the game.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #
+        # random_num = random.randint(0,1)
+        #
+        # if random_num == True:
+        #
+        #     while game_battle_one != True and game_battle_two != True:
+        #         self.team_one.attack(self.team_two)
+        #         game_battle_one = self.team_two.dead_heroes
+        #         game_battle_two = self.team_one.dead_heroes()
+        #         self.team_two.attack(self.team_one)
+        #         game_battle_one = self.team_two.dead_heroes()
+        #         game_battle_two = self.team_one.dead_heroes()
+        # else:
+        #     while game_battle_one != True and game_battle_two != True:
+        #         self.team_two.attack(self.team_one)
+        #         game_battle_one = self.team_one.dead_heroes()
+        #         game_battle_one = self.team_two.dead_heroes()
+        #         self.team_one.attack(team_two)
+        #         game_battle_one = self.team_one.dead_heroes()
+        #         game_battle_two = self.team_two.dead_heroes()
 
 
 
