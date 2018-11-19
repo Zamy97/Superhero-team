@@ -18,7 +18,9 @@ print(my_first_dog.name)
     #
     # def __init__(self, name):
     #     self.name = name
-
+    
+    
+    
 # if __name__ == "__main__":
 #     my_dog = Dog("Spot")
 #     my_other_dog = Dog("Mac")
