@@ -64,8 +64,6 @@ class Ability:
          return attack_value
 
 
-
-
      def update_attack(self, new_strength):
          self.attack_strength = new_strength
 
@@ -73,7 +71,8 @@ class Ability:
 class Weapon(Ability):
 
     def attack(self):
-        return random.randint(0, self.attack_strength)
+# why doesn't the tests pass when I use the lowest_possible_attack here in the random randint?
+        return random.randint((self.attack_strength//2), self.attack_strength)
 
 
 
@@ -83,21 +82,22 @@ class Team:
         self.name = team_name
         self.heroes = list()
 
-    def add_hero(self, Hero):
-        self.heroes.append(Hero)
+    def add_hero(self, hero):
+        self.heroes.append(hero)
 
     def remove_hero(self, name):
-
         hero_list = 0
         for hero in self.heroes:
+# why am I assigning the name to the hero name?
             if hero.name == name:
                 self.heroes.remove(hero)
-                return 1
+                return   # was return 1
+# Why am I adding number on the list again?
             hero_list += 1
         return 0
 
     def find_hero(self, name):
-        """ Find and return hero from heroes listself.
+        """ Find and return hero from heroes list.
         If Hero isn't found return 0
         """
         for hero in self.heroes:
@@ -130,8 +130,6 @@ class Team:
             hero.deaths += dead_enemies
 
             return dead_enemies
-
-
 
 
     def defend(self, damage_amount):
