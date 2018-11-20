@@ -28,13 +28,26 @@ class Hero:
 
     def defend(self):
 
-         if len(self.armors) >= 1:
-            for armor in self.armors:
-                if self.health < 1:
-                    return 0
-                else:
-                    return armor.defend()
-         else: return 0
+        total_defense = 0
+
+
+        if self.current_health == 0:
+            return 0
+
+        for armor in self.armors:
+            armor_defense = armor.defend()
+            total_defense += armor_defense
+
+        return total_defense
+
+
+         # if len(self.armors) >= 1:
+         #    for armor in self.armors:
+         #        if self.health == 0:
+         #            return 0
+         #        else:
+         #            return armor.defend()
+         # else: return 0
 
 
     def take_damage(self, damage_amount):
@@ -218,8 +231,7 @@ class Team:
 class Armor:
 
     def __init__(self, name, defense):
-
-    #    """ Instantinate name and defence steength. """
+        """ Instantinate name and defence steength. """
         self.name = name
         self.defense = int(defense)
 
