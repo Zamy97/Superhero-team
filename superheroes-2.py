@@ -12,4 +12,20 @@ class Hero:
         self.abilities(ability)
 
     def attack(self):
+
+        total_attack = 0
+        for ability in self.abilities:
+            total_attack += ability.attack()
+        return total_attack
+
+    def take_damage(self, damage_amount):
+        self.current_health -= damage_amount
+
+    def is_alive(self):
+        if self.current_health > 0:
+            return True
+        else:
+            return False
+
+    def fight(self, opponent):
         

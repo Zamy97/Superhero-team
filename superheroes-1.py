@@ -2,12 +2,12 @@ import random
 
 class Hero:
 
-    def __init__(self, name, health=100):
+    def __init__(self, name, start_health=100):
         self.abilities = list()
         self.name = name
         self.armors = list()
-        self.start_health = health
-        self.health = health
+        self.starting_health = start_health
+        self.current_health = start_health
         self.deaths = 0
         self.kills = 0
 
@@ -36,10 +36,11 @@ class Hero:
                     return armor.defend()
          else: return 0
 
+
     def take_damage(self, damage_amount):
 
-        self.health -= damage_amount
-        if self.health <= 0:
+        self.current_health -= damage_amount
+        if self.current_health <= 0:
             self.deaths += 1
 
     def add_kill(self, number_kills):
@@ -56,9 +57,13 @@ class Ability:
 
 
      def attack(self):
+# Why am I using the lowest possible attack here?
+# is it necessary here?
          lowest_possible_attack = self.attack_strength // 2
-         attack = random.randint(lowest_possible_attack,self.attack_strength)
-         return attack
+         attack_value = random.randint(lowest_possible_attack,self.attack_strength)
+         return attack_value
+
+
 
 
      def update_attack(self, new_strength):
