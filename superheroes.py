@@ -53,13 +53,11 @@ class Hero:
     def take_damage(self, damage_amount):
 
         self.current_health -= damage_amount
+
         if self.current_health <= 0:
             self.deaths += 1
 
     def add_kill(self, number_kills):
-         """
-         This method should add the number of kills to self.kills
-         """
          self.kills += number_kills
 
 class Ability:
@@ -131,18 +129,20 @@ class Team:
 
         """
         total_attack = 0
+        dead_enemies = 0
 
         for hero in self.heroes:
             total_attack += hero.attack()
-        dead_enemies = other_team.defend(total_attack)
 
-        for hero in self.heroes:
-            hero.add_kill(dead_enemies)
+        dead_enemies = other_team.defend(total_attack)
 
         for hero in other_team.heroes:
             hero.deaths += dead_enemies
 
-            return dead_enemies
+        for hero in self.heroes:
+            hero.add_kill(dead_enemies)
+
+        return dead_enemies
 
 
     def defend(self, damage_amount):
@@ -171,7 +171,7 @@ class Team:
 
         dead_heroes = 0
         for hero in self.heroes:
-            heroes_health = hero.health
+            heroes_health = hero.current_health
             if heroes_health <= 0:
                 continue
             if heroes_health <= individual_damage:
@@ -179,7 +179,7 @@ class Team:
                 dead_heroes += 1
                 hero.health = 0
             if heroes_health >= individual_damage:
-                hero.health = hero.health - individual_damage
+                hero.current_health = hero.current_health - individual_damage
 
         return dead_heroes
 
@@ -192,7 +192,7 @@ class Team:
         # get one of the heroes health first
         #once you access the health you need to reset it to the original health that is given to you.
         for hero in self.heroes:
-            hero.health = hero.start_health
+            hero.current_health = hero.starting_health
 
 
     def stats(self):
@@ -204,13 +204,13 @@ class Team:
         # To get ratio kills you divide kills number / heroes death chances!
 
         kill_ratio_list = list()
+
         for hero in self.heroes:
             kill_ratio = hero.kills / hero.deaths
 
             kill_ratio_list.append(kill_ratio)
 
         print(kill_ratio_list)
-
 
     def update_kills(self):
         """
