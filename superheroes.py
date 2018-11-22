@@ -252,6 +252,27 @@ class Arena:
         input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
 
 
+        return input_abilities_for_your_hero
+
+    def create_weapon(self):
+        pass
+
+    def create_armor(self):
+        pass
+
+    def build_team_one(self):
+        pass
+
+    def build_team_two(self):
+        pass
+
+    def team_battle(self):
+        pass
+
+    def show_stats(self):
+        pass
+
+
 
 
 
@@ -389,46 +410,6 @@ class Arena:
         while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
             team_one_deaths = self.team_one.attack(self.team_two)
             team_two_deaths = self.team_two.attack(self.team_one)
-
-
-
-
-
-
-
-
-
-
-
-
-        # game_battle_one = False
-        # game_battle_two = False
-        #
-        #
-        # # Assign each of the team to the team class!
-        # self.build_team_one(team_one)
-        # self.build_team_two(team_two)
-        #
-        # # Show the user of what the heroes stats is from each team!
-        #
-        # print(self.team_one.heroes_stats())
-        # print(self.team_two.heroes_stats())
-        #
-        # # Let's chose a random number and use that to start the game.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
