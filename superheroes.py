@@ -16,6 +16,9 @@ class Hero:
     def add_ability(self, ability):
         self.abilities.append(ability)
 
+    def add_weapen(self, weapon):
+        self.abilities.append(weapon)
+
     def add_armor(self, armor):
         self.armors.append(armor)
 
@@ -231,7 +234,6 @@ class Team:
 class Armor:
 
     def __init__(self, name, defense):
-        """ Instantinate name and defence steength. """
         self.name = name
         self.defense = int(defense)
 
@@ -243,6 +245,13 @@ class Arena:
     def __init__(self):
         self.team_one = None
         self.team_two = None
+
+
+    def create_ability(self):
+
+        input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
+
+
 
 
 
