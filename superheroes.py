@@ -243,12 +243,21 @@ class Armor:
 class Arena:
 
     def __init__(self):
+        '''
+          Declare variables
+        '''
         self.team_one = None
         self.team_two = None
 
 
     def create_ability(self):
+        '''
+        This method will allow a user to create an ability.
 
+        Prompt the user for the necessary information to create a new ability object.
+
+        return the new ability object.
+        '''
         input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
 
 
@@ -399,13 +408,10 @@ class Arena:
             self.team_two.add_hero(second_hero)
 
 
-
-
     def team_battle(self):
 
         team_two_deaths = 0
         team_one_deaths = 0
-
 
         while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
             team_one_deaths = self.team_one.attack(self.team_two)
@@ -481,27 +487,6 @@ if __name__ == "__main__":
             #Revive heroes to play again
             arena.team_one.revive_heroes()
             arena.team_two.revive_heroes()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
