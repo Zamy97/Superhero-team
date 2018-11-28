@@ -268,7 +268,8 @@ class Arena:
                 ability_attack_strength = input(" what attack strength should " + ability_name + "have?")
                 new_ability = Ability(ability_name, ability_attack_strength)
                 new_hero.add_ability(new_ability)
-                abilities_finished = input.lower(("Add more abilities for your " + new_hero.name + " (Y/N) ?"))
+                abilities_finished = input("Add more abilities for your " + new_hero.name + " (Y/N) ?")
+                abilities_finished_lower = abilities_finished.lower()
                 if abilities_finished == "y":
                     building_abilities = False
                 else:
@@ -280,13 +281,15 @@ class Arena:
                 armor_name = input("Name an armor for your hero: ")
                 armor_defense = input("What defense score you want to give your hero's " + armor_name)
                 new_armor = Armor(armor_name, armor_defense)
-                building_armor_finished = input.lower(("add more armor for your " + new_hero.name + " (y/n) " ))
+                building_armor_finished = input("add more armor for your " + new_hero.name + " (y/n) " )
+                building_armor_finished_lower = building_armor_finished.lower()
                 if building_armor_finished == "y":
                     building_armor = False
                 else:
                     team.add_hero(new_hero)
 
             building_team_finished = input("Done building your team? (y/n) ")
+            building_team_finished_lower = building_team_finished.lower()
             if building_team_finished == "y":
                 building_team = False
 
@@ -310,10 +313,35 @@ class Arena:
                 ability_attack_strength = input("How much attack strength should" + ability_name + "have?")
                 new_ability = Ability(ability_name, ability_attack_strength)
                 new_hero.add_ability(new_ability)
+                ability_finished = input("Add more abilities? (y/n) ")
+                ability_finished_lower = ability_finished.lower()
+                if ability_finished == "y":
+                    building_abilities = False
+                else:
+                    continue
+
+                print("Let's give some armor to your" + new_hero.name)
+
+                building_armor = True
+                while building_armor:
+                    armor_name = input("What would be the name of the armor: ")
+                    armor_defense = input("What is the defense score you want to give the armor: ")
+                    new_armor = Armor(armor_name, armor_defense)
+                    new_hero.add_armor(new_armor)
+                    building_armor_finished = input("Add more armor to your " + new_hero.name + " (y/n) ")
+                    building_armor_finished_lower = building_armor_finished.lower()
+                    if building_armor_finished == "y":
+                        building_armor = False
+                    else:
+                        team.add_hero(new_hero)
 
 
+                building_team_finished = input("Are you done building your team? (y/n) ")
+                building_team_finished_lower = building_team_finished.lower()
+                if building_team_finished == "y":
+                    building_team = False
 
-
+            return team
 
 
 
