@@ -250,41 +250,6 @@ class Arena:
         self.team_two = None
 
 
-    def create_ability(self):
-        '''
-        This method will allow a user to create an ability.
-
-        Prompt the user for the necessary information to create a new ability object.
-
-        return the new ability object.
-        '''
-        input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
-
-
-        return input_abilities_for_your_hero
-
-    def create_weapon(self):
-        pass
-
-    def create_armor(self):
-        pass
-
-    def build_team_one(self):
-        pass
-
-    def build_team_two(self):
-        pass
-
-    def team_battle(self):
-        pass
-
-    def show_stats(self):
-        pass
-
-
-
-
-
     def build_team_one(self):
 
         print("let's build a team to fight the other team")
