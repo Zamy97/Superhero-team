@@ -296,7 +296,21 @@ class Arena:
         team_two_name = input("What do you want to name your second team: ")
         team = Team(team_two_name)
         print("let's start adding heroes to your "+ team_two_name)
-        
+
+        building_team = True
+        while building_team:
+
+            hero_name_input = input("what do you want to name your hero: ")
+            new_hero = Hero(hero_name_input)
+            print("what Abilities do you want your" + new_hero.name + "to have")
+
+            building_abilities = True
+            while building_abilities:
+                ability_name = input("Name the ability: ")
+                ability_attack_strength = input("How much attack strength should" + ability_name + "have?")
+                new_ability = Ability(ability_name, ability_attack_strength)
+                new_hero.add_ability(new_ability)
+
 
 
 
