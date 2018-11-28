@@ -249,6 +249,54 @@ class Arena:
         self.team_one = None
         self.team_two = None
 
+    def build_team_one(self):
+
+        team_one_name = input("What do you want to name your team: ")
+        team = Team(team_one_name)
+        print("Lets add some heroes to your " + team_one_name)
+
+        building_team = True
+        while building_team:
+
+            hero_name_input = input("What do you want to name your hero: ")
+            new_hero = Hero(hero_name_input)
+            print("what abilities do you want to give your hero ?" + new_hero.name)
+
+            building_abilities = True
+            while building_abilities:
+                ability_name = input("Name an ability you want to give your hero?")
+                ability_attack_strength = input(" what attack strength should " + ability_name + "have?")
+                new_ability = Ability(ability_name, ability_attack_strength)
+                new_hero.add_ability(new_ability)
+                abilities_finished = input.lower(("Add more abilities for your " + new_hero.name + " (Y/N) ?"))
+                if abilities_finished == "y":
+                    building_abilities = False
+                else:
+                    continue
+            print("let's give some armor to your " + new_hero.name)
+
+            building_armor = True
+            while building_armor:
+                armor_name = input("Name an armor for your hero: ")
+                armor_defense = input("What defense score you want to give your hero's " + armor_name)
+                new_armor = Armor(armor_name, armor_defense)
+                building_armor_finished = input.lower(("add more armor for your " + new_hero.name + " (y/n) " ))
+                if building_armor_finished == "y":
+                    building_armor = False
+                else:
+                    team.add_hero(new_hero)
+
+            building_team_finished = input("Done building your team? (y/n) ")
+            if building_team_finished == "y":
+                building_team = False
+
+    return team
+
+
+
+
+
+
 
     def build_team_one(self):
 
