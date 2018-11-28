@@ -292,6 +292,12 @@ class Arena:
 
     return team
 
+    def build_team_two(self):
+        team_two_name = input("What do you want to name your second team: ")
+        team = Team(team_two_name)
+        print("let's start adding heroes to your "+ team_two_name)
+        
+
 
 
 
