@@ -74,7 +74,7 @@ class Ability:
 # Why am I using the lowest possible attack here?
 # is it necessary here?
          lowest_possible_attack = self.attack_strength // 2
-         attack_value = random.randint(lowest_possible_attack,self.attack_strength)
+         attack_value = random.randint(lowest_possible_attack, self.attack_strength)
          return attack_value
 
 
@@ -87,8 +87,6 @@ class Weapon(Ability):
     def attack(self):
 # why doesn't the tests pass when I use the lowest_possible_attack here in the random randint?
         return random.randint((self.attack_strength//2), self.attack_strength)
-
-
 
 class Team:
 
@@ -140,7 +138,7 @@ class Team:
         dead_enemies = other_team.defend(total_attack)
 
         for hero in other_team.heroes:
-            hero.deaths += dead_enemies
+            hero.deaths = dead_enemies
 
         for hero in self.heroes:
             hero.add_kill(dead_enemies)
@@ -293,7 +291,7 @@ class Arena:
             if building_team_finished == "y":
                 building_team = False
 
-    return team
+        return team
 
     def build_team_two(self):
         team_two_name = input("What do you want to name your second team: ")
@@ -347,139 +345,253 @@ class Arena:
 
 
 
-    def build_team_one(self):
+    # def build_team_one(self):
+    #
+    #     print("let's build a team to fight the other team")
+    #
+    #     team_one_heroes = 1
+    #
+    #     team_one_name = input("Chose a name for your first team?")
+    #     # Whatever name they chose assign it to the team one above!
+    #     self.team_one = Team(team_one_name)
+    #
+    #     print("now that you are done choosing your team name let's chose a hero for your team")
+    #
+    #     while team_one_heroes < 2:
+    #         hero_name_input = input("Enter hero for your team: ")
+    #     # Whatever name they chose for their hero assign it to the name_of_the_hero!
+    #         first_hero = Hero(hero_name_input)
+    #
+    #     #Ask users if they want to give any abilities to the heros
+    #         input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
+    #         if input_abilities_for_your_hero.lower() == "yes":
+    #             input_abilities_for_your_hero = True
+    #         elif input_abilities_for_your_hero.lower() == "no":
+    #             input_abilities_for_your_hero = False
+    #
+    #     # If the user says yes then let them input abilities that they want for their hero.
+    #
+    #     while input_abilities_for_your_hero:
+    #         abilities_name = input("Enter a name of the ability for your hero:")
+    #         attack_strength_value = input("Enter a value to give attack strength to your hero: ")
+    #     # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
+    #
+    #         heroes_ability = Ability(abilities_name, attack_strength_value)
+    #
+    #     # After you are done adding it to the ability class, give that ability to the hero
+    #
+    #         first_hero.add_ability(heroes_ability)
+    #
+    #
+    #         input_armor_yes_no = input(" Do you want to add armor to your hero? yes or no? ")
+    #
+    #
+    #         if input_armor_yes_no.lower() == "yes":
+    #             input_armor_yes_no = True
+    #
+    #         elif input_armor_yes_no.lower() == "no":
+    #             input_armor_yes_no = False
+    #
+    #     # If they say yes then let them add the armor for their heroe.
+    #
+    #     while input_armor_yes_no:
+    #         input_armor_name = input("Enter an armor name that you want to give to your hero:")
+    #         input_armor_defense = input("enter a value to defense the hero's armor: ")
+    #
+    #
+    #     # After getting the name of the armor add it to the Ability list
+    #
+    #         heroes_armor_from_input = Armor(input_armor_name, input_armor_defense)
+    #
+    #     # Once you have have the armor in the Armor class give that armor to the heroes
+    #
+    #         first_hero.add_armor(heroes_armor_from_input)
+    #
+    #     # Let the user add the heroes in the team
+    #
+    #         self.team_one.add_hero(first_hero)
+    #
+    #
+    #
+    # def build_team_two(self):
+    #
+    #     print("let's build the second team now")
+    #
+    #     team_two_heroes = 1
+    #
+    #     team_two_name = input("Chose a name for your second team")
+    #
+    #     self.team_two = Team(team_two_name)
+    #
+    #     print("let's chose a hero for your second team")
+    #
+    #     while team_two_heroes < 2:
+    #         second_hero_input = inout("Enter a hero name for four team: ")
+    #
+    #         second_hero = Hero(team_two_hero_input)
+    #
+    #
+    #     team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
+    #
+    #     if team_two_hero_abilities_input.lower() == "yes":
+    #             second_hero_abilities_input = True
+    #
+    #     elif second_hero_abilities_input.lower() == "no":
+    #             second_hero_abilities_input = False
+    #
+    #     while second_hero_abilities_input:
+    #         second_abilities_name = input("Enter an ability name that you want to give to your hero: ")
+    #         second_attack_strength_value = input("Enter a value to give strength to your hero:")
+    #
+    #         second_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
+    #
+    #         second_hero.add_ability(team2_heroes_ability)
+    #
+    #     second_input_armor_yes_no = input("Do you want to give armor to your hero?")
+    #
+    #
+    #     if team2_input_armor_yes_no.lower() == "yes":
+    #             second_input_armor_yes_no = True
+    #
+    #     elif team2_input_armor_yes_no.lower() == "no":
+    #             second_input_armor_yes_no = False
+    #
+    #
+    #     while team2_input_armor_yes_no:
+    #         second_armor_name = input("Enter an armor name that you want to give to your hero for your second team: ")
+    #         second_input_armor_defense = input("Enter a value to defense the hero's armo: ")
+    #
+    #         second_heroes_armor_from_input = Armor(second_armor_name, second_input_armor_defense)
+    #
+    #         second_hero.add_armor(second_heroes_armor_from_input)
+    #
+    #         self.team_two.add_hero(second_hero)
 
-        print("let's build a team to fight the other team")
 
-        team_one_heroes = 1
-
-        team_one_name = input("Chose a name for your first team?")
-        # Whatever name they chose assign it to the team one above!
-        self.team_one = Team(team_one_name)
-
-        print("now that you are done choosing your team name let's chose a hero for your team")
-
-        while team_one_heroes < 2:
-            hero_name_input = input("Enter hero for your team: ")
-        # Whatever name they chose for their hero assign it to the name_of_the_hero!
-            first_hero = Hero(hero_name_input)
-
-        #Ask users if they want to give any abilities to the heros
-            input_abilities_for_your_hero = input("Do you want to give abilities to your hero? yes or no: ")
-            if input_abilities_for_your_hero.lower() == "yes":
-                input_abilities_for_your_hero = True
-            elif input_abilities_for_your_hero.lower() == "no":
-                input_abilities_for_your_hero = False
-
-        # If the user says yes then let them input abilities that they want for their hero.
-
-        while input_abilities_for_your_hero:
-            abilities_name = input("Enter a name of the ability for your hero:")
-            attack_strength_value = input("Enter a value to give attack strength to your hero: ")
-        # Whatever abilities that they put in pass that in ability class as what the Ability class is expecting
-
-            heroes_ability = Ability(abilities_name, attack_strength_value)
-
-        # After you are done adding it to the ability class, give that ability to the hero
-
-            first_hero.add_ability(heroes_ability)
-
-
-            input_armor_yes_no = input(" Do you want to add armor to your hero? yes or no? ")
-
-
-            if input_armor_yes_no.lower() == "yes":
-                input_armor_yes_no = True
-
-            elif input_armor_yes_no.lower() == "no":
-                input_armor_yes_no = False
-
-        # If they say yes then let them add the armor for their heroe.
-
-        while input_armor_yes_no:
-            input_armor_name = input("Enter an armor name that you want to give to your hero:")
-            input_armor_defense = input("enter a value to defense the hero's armor: ")
-
-
-        # After getting the name of the armor add it to the Ability list
-
-            heroes_armor_from_input = Armor(input_armor_name, input_armor_defense)
-
-        # Once you have have the armor in the Armor class give that armor to the heroes
-
-            first_hero.add_armor(heroes_armor_from_input)
-
-        # Let the user add the heroes in the team
-
-            self.team_one.add_hero(first_hero)
-
-
-
-    def build_team_two(self):
-
-        print("let's build the second team now")
-
-        team_two_heroes = 1
-
-        team_two_name = input("Chose a name for your second team")
-
-        self.team_two = Team(team_two_name)
-
-        print("let's chose a hero for your second team")
-
-        while team_two_heroes < 2:
-            second_hero_input = inout("Enter a hero name for four team: ")
-
-            second_hero = Hero(team_two_hero_input)
-
-
-        team_two_hero_abilities_input = input("Do you want to give any abilities to the hero? yes or no?")
-
-        if team_two_hero_abilities_input.lower() == "yes":
-                second_hero_abilities_input = True
-
-        elif second_hero_abilities_input.lower() == "no":
-                second_hero_abilities_input = False
-
-        while second_hero_abilities_input:
-            second_abilities_name = input("Enter an ability name that you want to give to your hero: ")
-            second_attack_strength_value = input("Enter a value to give strength to your hero:")
-
-            second_heroes_ability = Ability(team2_abilities_name, team2_attack_strength_value)
-
-            second_hero.add_ability(team2_heroes_ability)
-
-        second_input_armor_yes_no = input("Do you want to give armor to your hero?")
-
-
-        if team2_input_armor_yes_no.lower() == "yes":
-                second_input_armor_yes_no = True
-
-        elif team2_input_armor_yes_no.lower() == "no":
-                second_input_armor_yes_no = False
-
-
-        while team2_input_armor_yes_no:
-            second_armor_name = input("Enter an armor name that you want to give to your hero for your second team: ")
-            second_input_armor_defense = input("Enter a value to defense the hero's armo: ")
-
-            second_heroes_armor_from_input = Armor(second_armor_name, second_input_armor_defense)
-
-            second_hero.add_armor(second_heroes_armor_from_input)
-
-            self.team_two.add_hero(second_hero)
-
-
+    # def team_battle(self):
+    #
+    #     team_two_deaths = 0
+    #     team_one_deaths = 0
+    #
+    #     while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
+    #         team_one_deaths = self.team_one.attack(self.team_two)
+    #         team_two_deaths = self.team_two.attack(self.team_one)
     def team_battle(self):
+        battling = True
 
-        team_two_deaths = 0
-        team_one_deaths = 0
+        while battling == True:
+            self.team_one.attack(self.team_two)
+            self.team_two.attack(self.team_one)
 
-        while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
-            team_one_deaths = self.team_one.attack(self.team_two)
-            team_two_deaths = self.team_two.attack(self.team_one)
+            winning_team = ""
+
+            if self.is_team_dead(self.team_one) == True:
+                winning_team = self.team_two.name
+                print("Congrats" + winning_team)
+                battling = False
+                self.show_stats()
+                break
+            elif self.is_team_dead(self.team_two) == True:
+                winning_team = self.team_one.name
+                print("Congrats" + winning_team)
+                battling = False
+                self.show_stats()
+                break
+            else:
+                continue
 
 
+    def show_stats(self):
+
+        # Why do I have two braces after the stats method??
+        # How is stats method is being called here without creating an object of the Team class?
+        #What is happening before the program gets to this two lines of code?
+        print("Show stats for team one")
+        print(self.team_one.stats())
+        print("Show stats for team two")
+        print(self.team_two.stats())
+
+    def is_team_dead(self, team):
+        heroes_dead = 0
+
+        for hero in team.heroes:
+            if hero.current_health <= 0:
+                heroes_dead += 1
+
+        if heroes_dead == len(team.heroes):
+            return True
+        else:
+            return False
+
+def play_game():
+    game_arena = Arena()
+    game_arena.team_battle()
+
+play_game()
+
+
+
+# if __name__ == "__main__":
+#     game_is_running = True
+#
+#     # Instantiate Game Arena
+#     arena = Arena()
+#
+#     #Build Teams
+#     arena.build_team_one()
+#     arena.build_team_two()
+#
+#     while game_is_running:
+#
+#         arena.team_battle()
+#         arena.show_stats()
+#         play_again = input("Play Again? Y or N: ")
+#
+#         #Check for Player Input
+#         if play_again.lower() == "n":
+#             game_is_running = False
+#
+#         else:
+#             #Revive heroes to play again
+#             arena.team_one.revive_heroes()
+#             arena.team_two.revive_heroes()
+#
+#
+#
+#
+# if __name__ == "__main__":
+#     # hero = Hero(6)
+#     # print (hero.name)
+#
+#     # hero_name_input = input("Enter hero for your team: ")
+#     # name_of_the_hero = Hero(hero_name_input)
+#     # print(name_of_the_hero)
+#     # print(44)
+#     # print(hero_name_input //  2)
+#
+#     # attack_strength_value = input("Enter a value to give attack strength to your hero: ")
+#     #
+#     #
+#     # print(int(attack_strength_value) // 2)
+#
+#     abilities_name = input("Enter a name of the ability for your hero:")
+#     attack_strength_value = input("Enter a value to give attack strength to your hero: ")
+#
+#
+#     heroes_ability = Ability(abilities_name, attack_strength_value)
+#     print(type(heroes_ability.attack_strength))
+#     print(type(heroes_ability.attack_strength))
+#
+#
+#
+#     hero = Hero("Spider Man")
+#     print(hero.attack())
+#     ability = Ability("Jumps", 300)
+#     hero.add_ability(ability)
+#     print(hero.attack())
+#     new_ability = Ability("Web Power", 500)
+#     hero.add_ability(new_ability)
+#     print(hero.attack())
 
 
 
@@ -503,86 +615,3 @@ class Arena:
         #         self.team_one.attack(team_two)
         #         game_battle_one = self.team_one.dead_heroes()
         #         game_battle_two = self.team_two.dead_heroes()
-
-
-
-
-
-
-    def show_stats(self):
-
-        # Why do I have two braces after the stats method??
-        # How is stats method is being called here without creating an object of the Team class?
-        #What is happening before the program gets to this two lines of code?
-        print("Show stats for team one")
-        print(self.team_one.stats())
-        print("Show stats for team two")
-        print(self.team_two.stats())
-
-
-# myArena = Arena()
-# myArena.team_battle()
-# myArena.show_stats()
-
-
-if __name__ == "__main__":
-    game_is_running = True
-
-    # Instantiate Game Arena
-    arena = Arena()
-
-    #Build Teams
-    arena.build_team_one()
-    arena.build_team_two()
-
-    while game_is_running:
-
-        arena.team_battle()
-        arena.show_stats()
-        play_again = input("Play Again? Y or N: ")
-
-        #Check for Player Input
-        if play_again.lower() == "n":
-            game_is_running = False
-
-        else:
-            #Revive heroes to play again
-            arena.team_one.revive_heroes()
-            arena.team_two.revive_heroes()
-
-
-
-
-if __name__ == "__main__":
-    # hero = Hero(6)
-    # print (hero.name)
-
-    # hero_name_input = input("Enter hero for your team: ")
-    # name_of_the_hero = Hero(hero_name_input)
-    # print(name_of_the_hero)
-    # print(44)
-    # print(hero_name_input //  2)
-
-    # attack_strength_value = input("Enter a value to give attack strength to your hero: ")
-    #
-    #
-    # print(int(attack_strength_value) // 2)
-
-    abilities_name = input("Enter a name of the ability for your hero:")
-    attack_strength_value = input("Enter a value to give attack strength to your hero: ")
-
-
-    heroes_ability = Ability(abilities_name, attack_strength_value)
-    print(type(heroes_ability.attack_strength))
-    print(type(heroes_ability.attack_strength))
-
-
-
-    hero = Hero("Spider Man")
-    print(hero.attack())
-    ability = Ability("Jumps", 300)
-    hero.add_ability(ability)
-    print(hero.attack())
-    new_ability = Ability("Web Power", 500)
-    hero.add_ability(new_ability)
-    print(hero.attack())
