@@ -341,6 +341,61 @@ class Arena:
 
             return team
 
+    def team_battle(self):
+        battling = True
+
+        while battling == True:
+            self.team_one.attack(self.team_two)
+            self.team_two.attack(self.team_one)
+
+            winning_team = ""
+
+            if self.is_team_dead(self.team_one) == True:
+                winning_team = self.team_two.name
+                print("Congrats" + winning_team)
+                battling = False
+                self.show_stats()
+                break
+            elif self.is_team_dead(self.team_two) == True:
+                winning_team = self.team_one.name
+                print("Congrats" + winning_team)
+                battling = False
+                self.show_stats()
+                break
+            else:
+                continue
+
+
+    def show_stats(self):
+
+            # Why do I have two braces after the stats method??
+            # How is stats method is being called here without creating an object of the Team class?
+            #What is happening before the program gets to this two lines of code?
+        print("Show stats for team one")
+        print(self.team_one.stats())
+        print("Show stats for team two")
+        print(self.team_two.stats())
+
+    def is_team_dead(self, team):
+        heroes_dead = 0
+
+        for hero in team.heroes:
+            if hero.current_health <= 0:
+                heroes_dead += 1
+
+        if heroes_dead == len(team.heroes):
+            return True
+        else:
+            return False
+
+def play_game():
+    game_arena = Arena()
+    game_arena.team_battle()
+
+play_game()
+
+
+
 
 
 
@@ -476,59 +531,6 @@ class Arena:
     #     while team_two_deaths < len(self.team_two) or team_one_deaths < len(self.team_one):
     #         team_one_deaths = self.team_one.attack(self.team_two)
     #         team_two_deaths = self.team_two.attack(self.team_one)
-    def team_battle(self):
-        battling = True
-
-        while battling == True:
-            self.team_one.attack(self.team_two)
-            self.team_two.attack(self.team_one)
-
-            winning_team = ""
-
-            if self.is_team_dead(self.team_one) == True:
-                winning_team = self.team_two.name
-                print("Congrats" + winning_team)
-                battling = False
-                self.show_stats()
-                break
-            elif self.is_team_dead(self.team_two) == True:
-                winning_team = self.team_one.name
-                print("Congrats" + winning_team)
-                battling = False
-                self.show_stats()
-                break
-            else:
-                continue
-
-
-    def show_stats(self):
-
-        # Why do I have two braces after the stats method??
-        # How is stats method is being called here without creating an object of the Team class?
-        #What is happening before the program gets to this two lines of code?
-        print("Show stats for team one")
-        print(self.team_one.stats())
-        print("Show stats for team two")
-        print(self.team_two.stats())
-
-    def is_team_dead(self, team):
-        heroes_dead = 0
-
-        for hero in team.heroes:
-            if hero.current_health <= 0:
-                heroes_dead += 1
-
-        if heroes_dead == len(team.heroes):
-            return True
-        else:
-            return False
-
-def play_game():
-    game_arena = Arena()
-    game_arena.team_battle()
-
-play_game()
-
 
 
 # if __name__ == "__main__":
