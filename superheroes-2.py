@@ -23,7 +23,6 @@ class Hero:
     def __init__(self, name, health=100):
         self.name = name
         self.abilities = list()
-
         self.armors = list()
         self.start_health = health
         self.health = health

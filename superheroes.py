@@ -12,7 +12,6 @@ class Hero:
         self.kills = 0
 
 
-
     def add_ability(self, ability):
         self.abilities.append(ability)
 
@@ -23,14 +22,15 @@ class Hero:
         self.armors.append(armor)
 
     def attack(self):
-
-        total = 0
-        for each_items in self.abilities:
-            total += each_items.attack()
-        return total
+        total_attack = 0
+        for each_item in self.abilities:
+            if each_item.attack() == None:
+                return 0
+            attack_damage = each_item.attack()
+            total_attack += attack_damage
+        return total_attack
 
     def defend(self):
-
         total_defense = 0
 
 
@@ -54,7 +54,6 @@ class Hero:
 
 
     def take_damage(self, damage_amount):
-
         self.current_health -= damage_amount
 
         if self.current_health <= 0:
@@ -98,15 +97,15 @@ class Team:
         self.heroes.append(hero)
 
     def remove_hero(self, name):
-        hero_list = 0
+
+        if self.heroes == []:
+            return 0
+
         for hero in self.heroes:
-# why am I assigning the name to the hero name?
             if hero.name == name:
                 self.heroes.remove(hero)
-                return   # was return 1
-# Why am I adding number on the list again?
-            hero_list += 1
-        return 0
+            else:
+                return 0
 
     def find_hero(self, name):
         """ Find and return hero from heroes list.
@@ -115,7 +114,8 @@ class Team:
         for hero in self.heroes:
             if hero.name == name:
                 return hero
-        return 0
+            else:
+                return 0
 
     def view_all_heroes(self):
         """ Print out all heroes to the console """
@@ -146,6 +146,35 @@ class Team:
         return dead_enemies
 
 
+
+    def deal_damage(self, damage):
+
+        """
+        Divide the total damage amongst all heroes.
+        Return the number of heros that died in attack.
+        """
+        individual_damage = damage // len(self.heroes)
+
+        dead_heroes = 0
+        for hero in self.heroes:
+            hero.current_health -= individual_damage
+            if hero.health <= 0:
+                dead_heroes += 1
+
+        return dead_heroes
+        # for hero in self.heroes:
+        #     heroes_health = hero.current_health
+        #     if heroes_health <= 0:
+        #         continue
+        #     if heroes_health <= individual_damage:
+        #         # The hero dies
+        #         dead_heroes += 1
+        #         hero.health = 0
+        #     if heroes_health >= individual_damage:
+        #         hero.current_health = hero.current_health - individual_damage
+        #
+        # return dead_heroes
+
     def defend(self, damage_amount):
         """
         This method should calculate our team's total defense.
@@ -159,30 +188,13 @@ class Team:
             total_defense += hero.defend()
 
         if damage_amount > total_defense:
-            dead_heroes = self.deal_damage(damage_amount - total_defense)
-            return dead_heroes
+            damage = damage_amount - total_defense
+            return self.deal_damage(damage)
 
-    def deal_damage(self, damage):
+        # if damage_amount > total_defense:
+        #     dead_heroes = self.deal_damage(damage_amount - total_defense)
+        #     return dead_heroes
 
-        """
-        Divide the total damage amongst all heroes.
-        Return the number of heros that died in attack.
-        """
-        individual_damage = damage // len(self.heroes)
-
-        dead_heroes = 0
-        for hero in self.heroes:
-            heroes_health = hero.current_health
-            if heroes_health <= 0:
-                continue
-            if heroes_health <= individual_damage:
-                # The hero dies
-                dead_heroes += 1
-                hero.health = 0
-            if heroes_health >= individual_damage:
-                hero.current_health = hero.current_health - individual_damage
-
-        return dead_heroes
 
 
     def revive_heroes(self, health=100):
@@ -217,16 +229,15 @@ class Team:
         """
         This method should update each hero when there is a team kill.
         """
+        for hero in self.heroes:
+            if hero.current_health <= 0:
+                hero.kills += 1
         # First you need a place to save the number of kills that you might get
         # then you need to access all the heroes so you could tell each what the kill number is
         # Then add up the kills in where you were going to save the kills
         #once it's all added up in the memory
         #return it (optional)
 
-        total_team_killed = 0
-        for hero in self.heroes:
-            total_team_killed += hero.num_kills
-        return total_team_killed
 
 
 class Armor:
@@ -244,8 +255,8 @@ class Arena:
         '''
           Declare variables
         '''
-        self.team_one = None
-        self.team_two = None
+        self.team_one = self.build_team_one()
+        self.team_two = self.build_team_two()
 
     def build_team_one(self):
 
