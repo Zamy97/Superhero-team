@@ -1,5 +1,10 @@
-import random
+import sys,time,random
 
+def print_slow(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(0.1)
 class Hero:
 
     def __init__(self, name, start_health=100):
@@ -72,7 +77,7 @@ class Ability:
      def attack(self):
 # Why am I using the lowest possible attack here?
 # is it necessary here?
-         lowest_possible_attack = self.attack_strength // 2
+         lowest_possible_attack = int(self.attack_strength) // 2
          attack_value = random.randint(lowest_possible_attack, self.attack_strength)
          return attack_value
 
@@ -120,7 +125,7 @@ class Team:
     def view_all_heroes(self):
         """ Print out all heroes to the console """
         for hero in self.heroes:
-            print(hero.name)
+            print_slow(hero.name)
 
     def attack(self, other_team):
         """
@@ -158,7 +163,7 @@ class Team:
         dead_heroes = 0
         for hero in self.heroes:
             hero.current_health -= individual_damage
-            if hero.health <= 0:
+            if hero.current_health <= 0:
                 dead_heroes += 1
 
         return dead_heroes
@@ -219,11 +224,11 @@ class Team:
         kill_ratio_list = list()
 
         for hero in self.heroes:
-            kill_ratio = hero.kills / hero.deaths
+            kill_ratio = hero.kills / ( hero.deaths + 1 )
 
             kill_ratio_list.append(kill_ratio)
 
-        print(kill_ratio_list)
+        print_slow(kill_ratio_list)
 
     def update_kills(self):
         """
@@ -261,15 +266,15 @@ class Arena:
     def build_team_one(self):
 
         team_one_name = input("What do you want to name your team: ")
-        team = Team(team_one_name)
-        print("Lets add some heroes to your " + team_one_name)
+        self.team_one = Team(team_one_name)
+        print_slow("Lets add some heroes to your " + team_one_name)
 
         building_team = True
         while building_team:
 
             hero_name_input = input("What do you want to name your hero: ")
             new_hero = Hero(hero_name_input)
-            print("what abilities do you want to give your hero ?" + new_hero.name)
+            print_slow("what abilities do you want to give your hero ?" + new_hero.name)
 
             building_abilities = True
             while building_abilities:
@@ -279,11 +284,11 @@ class Arena:
                 new_hero.add_ability(new_ability)
                 abilities_finished = input("Add more abilities for your " + new_hero.name + " (Y/N) ?")
                 abilities_finished_lower = abilities_finished.lower()
-                if abilities_finished == "y":
+                if abilities_finished == "n":
                     building_abilities = False
                 else:
                     continue
-            print("let's give some armor to your " + new_hero.name)
+            print_slow("let's give some armor to your " + new_hero.name)
 
             building_armor = True
             while building_armor:
@@ -292,29 +297,28 @@ class Arena:
                 new_armor = Armor(armor_name, armor_defense)
                 building_armor_finished = input("add more armor for your " + new_hero.name + " (y/n) " )
                 building_armor_finished_lower = building_armor_finished.lower()
-                if building_armor_finished == "y":
+                if building_armor_finished == "n":
                     building_armor = False
-                else:
-                    team.add_hero(new_hero)
+            self.team_one.add_hero(new_hero)
 
             building_team_finished = input("Done building your team? (y/n) ")
             building_team_finished_lower = building_team_finished.lower()
             if building_team_finished == "y":
                 building_team = False
 
-        return team
+        return self.team_one
 
     def build_team_two(self):
         team_two_name = input("What do you want to name your second team: ")
-        team = Team(team_two_name)
-        print("let's start adding heroes to your "+ team_two_name)
+        self.team_two = Team(team_two_name)
+        print_slow("let's start adding heroes to your "+ team_two_name)
 
         building_team = True
         while building_team:
 
             hero_name_input = input("what do you want to name your hero: ")
             new_hero = Hero(hero_name_input)
-            print("what Abilities do you want your" + new_hero.name + "to have")
+            print_slow("what Abilities do you want your" + new_hero.name + "to have")
 
             building_abilities = True
             while building_abilities:
@@ -324,12 +328,12 @@ class Arena:
                 new_hero.add_ability(new_ability)
                 ability_finished = input("Add more abilities? (y/n) ")
                 ability_finished_lower = ability_finished.lower()
-                if ability_finished == "y":
+                if ability_finished == "n":
                     building_abilities = False
                 else:
                     continue
 
-                print("Let's give some armor to your" + new_hero.name)
+                print_slow("Let's give some armor to your" + new_hero.name)
 
                 building_armor = True
                 while building_armor:
@@ -339,10 +343,9 @@ class Arena:
                     new_hero.add_armor(new_armor)
                     building_armor_finished = input("Add more armor to your " + new_hero.name + " (y/n) ")
                     building_armor_finished_lower = building_armor_finished.lower()
-                    if building_armor_finished == "y":
+                    if building_armor_finished == "n":
                         building_armor = False
-                    else:
-                        team.add_hero(new_hero)
+                self.team_two.add_hero(new_hero)
 
 
                 building_team_finished = input("Are you done building your team? (y/n) ")
@@ -350,7 +353,7 @@ class Arena:
                 if building_team_finished == "y":
                     building_team = False
 
-            return team
+            return self.team_two
 
     def team_battle(self):
         battling = True
@@ -363,13 +366,13 @@ class Arena:
 
             if self.is_team_dead(self.team_one) == True:
                 winning_team = self.team_two.name
-                print("Congrats" + winning_team)
+                print_slow("Congrats" + winning_team)
                 battling = False
                 self.show_stats()
                 break
             elif self.is_team_dead(self.team_two) == True:
                 winning_team = self.team_one.name
-                print("Congrats" + winning_team)
+                print_slow("Congrats" + winning_team)
                 battling = False
                 self.show_stats()
                 break
@@ -382,10 +385,10 @@ class Arena:
             # Why do I have two braces after the stats method??
             # How is stats method is being called here without creating an object of the Team class?
             #What is happening before the program gets to this two lines of code?
-        print("Show stats for team one")
-        print(self.team_one.stats())
-        print("Show stats for team two")
-        print(self.team_two.stats())
+        print_slow("Show stats for team one")
+        self.team_one.stats()
+        print_slow("Show stats for team two")
+        self.team_two.stats()
 
     def is_team_dead(self, team):
         heroes_dead = 0
