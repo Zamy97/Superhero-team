@@ -1,10 +1,10 @@
 import sys,time,random
 
-def print_slow(str):
-    for letter in str:
-        sys.stdout.write(letter)
-        sys.stdout.flush()
-        time.sleep(0.1)
+# def print_slow(str):
+#     for letter in str:
+#         sys.stdout.write.str((letter))
+#         sys.stdout.flush()
+#         time.sleep(0.1)
 class Hero:
 
     def __init__(self, name, start_health=100):
@@ -125,7 +125,7 @@ class Team:
     def view_all_heroes(self):
         """ Print out all heroes to the console """
         for hero in self.heroes:
-            print_slow(hero.name)
+            print(hero.name)
 
     def attack(self, other_team):
         """
@@ -228,7 +228,7 @@ class Team:
 
             kill_ratio_list.append(kill_ratio)
 
-        print_slow(kill_ratio_list)
+        print(kill_ratio_list)
 
     def update_kills(self):
         """
@@ -267,14 +267,14 @@ class Arena:
 
         team_one_name = input("What do you want to name your team: ")
         self.team_one = Team(team_one_name)
-        print_slow("Lets add some heroes to your " + team_one_name)
+        print("Lets add some heroes to your " + team_one_name)
 
         building_team = True
         while building_team:
 
             hero_name_input = input("What do you want to name your hero: ")
             new_hero = Hero(hero_name_input)
-            print_slow("what abilities do you want to give your hero ?" + new_hero.name)
+            print("what abilities do you want to give your hero ?" + new_hero.name)
 
             building_abilities = True
             while building_abilities:
@@ -288,7 +288,7 @@ class Arena:
                     building_abilities = False
                 else:
                     continue
-            print_slow("let's give some armor to your " + new_hero.name)
+            print("let's give some armor to your " + new_hero.name)
 
             building_armor = True
             while building_armor:
@@ -311,14 +311,14 @@ class Arena:
     def build_team_two(self):
         team_two_name = input("What do you want to name your second team: ")
         self.team_two = Team(team_two_name)
-        print_slow("let's start adding heroes to your "+ team_two_name)
+        print("let's start adding heroes to your "+ team_two_name)
 
         building_team = True
         while building_team:
 
             hero_name_input = input("what do you want to name your hero: ")
             new_hero = Hero(hero_name_input)
-            print_slow("what Abilities do you want your" + new_hero.name + "to have")
+            print("what Abilities do you want your" + new_hero.name + "to have")
 
             building_abilities = True
             while building_abilities:
@@ -333,7 +333,7 @@ class Arena:
                 else:
                     continue
 
-                print_slow("Let's give some armor to your" + new_hero.name)
+                print("Let's give some armor to your" + new_hero.name)
 
                 building_armor = True
                 while building_armor:
@@ -366,13 +366,13 @@ class Arena:
 
             if self.is_team_dead(self.team_one) == True:
                 winning_team = self.team_two.name
-                print_slow("Congrats" + winning_team)
+                print("Congrats" + winning_team)
                 battling = False
                 self.show_stats()
                 break
             elif self.is_team_dead(self.team_two) == True:
                 winning_team = self.team_one.name
-                print_slow("Congrats" + winning_team)
+                print("Congrats" + winning_team)
                 battling = False
                 self.show_stats()
                 break
@@ -385,9 +385,9 @@ class Arena:
             # Why do I have two braces after the stats method??
             # How is stats method is being called here without creating an object of the Team class?
             #What is happening before the program gets to this two lines of code?
-        print_slow("Show stats for team one")
+        print("Show stats for team one")
         self.team_one.stats()
-        print_slow("Show stats for team two")
+        print("Show stats for team two")
         self.team_two.stats()
 
     def is_team_dead(self, team):
